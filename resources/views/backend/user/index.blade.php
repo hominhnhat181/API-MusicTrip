@@ -5,9 +5,9 @@
 @section('content')
     <div id="pages" class="main_contain">
         <div class="main_contain-hover">
-            {{-- <div class="main_contain-title option">
+            <div class="main_contain-title ">
                 <h2>USERS</h2>
-            </div> --}}
+            </div>
             <form class="" id=" sort_user" action="" method="GET">
                 <div class="row ">
                     <div class="admin_search col-xl-12 col-md-12">
@@ -66,13 +66,13 @@
                                             <img style="width: 50px; height:50px" src="{{ asset($user->image) }}" alt="">
                                         </td>
                                         <td class="d-none d-xl-table-cell">{{ $user->email }}</td>
-                                        @if ($user->admin == 1)
-                                            <td><span class="badge bg-danger">Admin</span></td>
-                                        @elseIf ($user->vendor == 1)
-                                            <td><span class="badge bg-warning">Saler</span></td>
+                                        <td>
+                                        @if ($user->status == 1)
+                                            <span class="badge bg-success">Admin</span>
                                         @else
-                                            <td><span class="badge bg-success">Customer</span></td>
+                                            <span class="badge bg-danger">Customer</span>
                                         @endif
+                                        </td>
                                         <td class="d-none d-xl-table-cell">{{ $user->created_at->toDateString() }}</td>
                                         {{-- <td class="d-none d-md-table-cell center">
                                             <div class="ct ">

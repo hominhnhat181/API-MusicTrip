@@ -52,12 +52,12 @@ class AuthController extends Controller
             }
 
             $tokenResult = $user->createToken('authToken')->plainTextToken;
-            return response()->json([
-                'status_code' => 200,
-                'access_token' => $tokenResult,
-                'token_type' => 'Bearer',
-            ]);
-            // return redirect()->route('admin.dashboard');
+            // return response()->json([
+            //     'status_code' => 200,
+            //     'access_token' => $tokenResult,
+            //     'token_type' => 'Bearer',
+            // ]);
+            return redirect()->route('admin.dashboard');
 
         }catch(Exception $error){
             return response()->json([

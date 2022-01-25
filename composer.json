@@ -10,9 +10,9 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laracasts/flash": "^3.2",
         "laravel/framework": "^8.65",
+        "laravel/passport": "^10.3",
         "laravel/sanctum": "^2.14",
-        "laravel/tinker": "^2.5",
-        "tymon/jwt-auth": "*"
+        "laravel/tinker": "^2.5"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",

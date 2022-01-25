@@ -16,16 +16,16 @@ use Illuminate\Support\Facades\Auth;
 Route::namespace('App\Http\Controllers\Api\Admin')->group(function () {
     Route::get('/login', 'AuthController@showLogin')->name('login');
     Route::get('/loginHandle', 'AuthController@loginHandle')->name('admin.login.handle');
-    // Route::get('/logout', 'AuthController@logout')->name('admin.logout');
-
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::group(['prefix' => 'admin'], function () {
-
-        Route::get('/userdata', 'App\Http\Controllers\Api\Admin\AuthController@userdata')->name('user.api');
-        Route::get('/logout', 'App\Http\Controllers\Api\Admin\AuthController@logout')->name('admin.logout');
-
+        // Authen test
+        Route::namespace('App\Http\Controllers\Api\Admin')->group(function () {
+            Route::get('/userdata', 'AuthController@userdata')->name('user.api');
+            Route::get('/logout', 'AuthController@logout')->name('admin.logout');
+        });
+        // AIZ
         Route::namespace('App\Http\Controllers')->group(function () {
             Route::any('/uploaded-files/file-info', 'AizUploadController@file_info')->name('uploaded-files.info');
             Route::resource('/uploaded-files', 'AizUploadController');
