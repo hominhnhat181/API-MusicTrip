@@ -1,0 +1,689 @@
+a {
+    text-decoration: none !important;
+}
+.admin_search {
+    margin-bottom: 12px;
+    position: relative;
+    font-weight: 500;
+}
+.admin_search i {
+    color: #fff;
+}
+
+.aiz-side-nav-logo-wrap img{
+    height: unset;
+    max-height: 55px;
+}
+
+.aiz-side-nav-logo-wrap a{
+    padding: 5px 25px;
+    background-color: #141423;
+}
+
+.main_contain-hover {
+    margin-bottom: 38px;
+}
+
+#alphax {
+    padding-right: 0;
+}
+
+#datepicker{
+    padding: 0 20px;
+}
+#alphax i {
+    right: 10px;
+}
+
+#alphay {
+    padding-left: 10px;
+}
+
+.admin_search .search {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 30px;
+    cursor: pointer;
+}
+
+.admin_search .more {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    right: 25px;
+    cursor: pointer;
+}
+
+.admin_search .admin_search-input {
+    font-size: 0.975rem;
+    width: 100%;
+    padding-left: 50px;
+    height: 45px;
+    border-radius: 5px;
+    border: unset;
+    color: #fff;
+    background-color: #343a40;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.admin_search .admin_search-input::placeholder,
+.admin_search .admin_search-chose::placeholder,
+.more {
+    color: #fff;
+}
+
+.admin_search .admin_search-chose {
+    font-size: 0.975rem;
+    width: 100%;
+    /* padding: 0 20px; */
+    height: 45px;
+    border-radius: 5px;
+    border: unset;
+    background-color: #343a40;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.bootstrap-select>.dropdown-toggle{
+    padding: 0 20px ;
+}
+
+.bootstrap-select .dropdown-menu{
+    padding: 0;
+}
+
+#sort_user {
+    margin-bottom: 0;
+}
+#sort_user .row {
+    margin-bottom: 0 !important;
+}
+.row #omega {
+    padding: unset;
+    margin-bottom: 12px !important;
+}
+
+@media only screen and (max-width: 1200px) {
+    .row #omega {
+        padding-left: 20px;
+        text-align: center;
+    }
+}
+
+.admin_search .admin_search-btn {
+    margin-left: 10px;
+    border: unset;
+    outline: unset;
+    font-size: 14px;
+    background-color: #ba4e4e;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* .admin_search select {
+    color: rgb(119, 119, 119);
+} */
+
+.admin_search a,
+.admin_search button {
+    font-size: 0.975rem;
+    /* margin-left: 10px; */
+    padding: 0;
+    border: unset;
+    outline: unset;
+    border-radius: 5px;
+    line-height: 45px;
+    text-align: center;
+    height: 45px;
+}
+.admin_search a:hover,
+.admin_search button:hover {
+    background-color: #dd6767;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.admin_search select:hover,
+.admin_search input:hover {
+    background-color: #3e4a57;
+    cursor: pointer;
+    /* color: white; */
+    transition: 0.4s;
+}
+
+.table > tbody > tr > td {
+    background: #fff;
+}
+
+.main {
+    position: relative;
+}
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.main_contain-title h2 {
+    font-family: "Zen Tokyo Zoo", cursive;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.main_contain-hover {
+    padding: 22px 25px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
+}
+.true_table {
+    width: 100%;
+}
+.ct {
+    display: flex;
+    justify-content: center;
+}
+.center {
+    text-align: center;
+}
+.ct_btn {
+    color: rgb(255, 255, 255) !important;
+    margin: 0 2px;
+}
+
+/* object */
+
+.over {
+    background-color: #fff;
+    box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+    position: relative;
+}
+
+.over .card {
+    box-shadow: none;
+    margin-bottom: 0;
+    /* width: 50%; */
+}
+
+.over .card .card-header {
+    padding-bottom: 0;
+}
+
+.over .card .card-body {
+    padding-top: 10px;
+}
+
+/* .over .card .card-body .btn{
+    width: 100px;
+    height: 40px;
+} */
+
+/* .over .card .card-body .form-control {
+    height: 40px;
+} */
+
+.over .card .card-header .card-title {
+    font-size: 18px;
+}
+
+.alert {
+    font-weight: 700;
+}
+
+.left_border {
+    border-top-left-radius: 8px;
+}
+
+.right_border {
+    border-top-right-radius: 8px;
+}
+
+/* pagination */
+.pagination {
+    justify-content: center;
+    margin-top: 28px;
+}
+/* end pagination */
+
+.pagination li {
+    margin: 0 10px;
+}
+.pagination li a,
+.pagination li span {
+    padding: 10px 2px;
+}
+
+.cat_list {
+    height: 35px;
+    width: 100%;
+    padding-left: 11px;
+}
+
+.img_pre {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 45%;
+    margin-right: 20px;
+}
+.thead-dark {
+    padding: 14px;
+}
+.badge {
+    width: 80px;
+    padding: 13px 0;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 0;
+}
+
+.over .card-body {
+    padding-bottom: 0;
+}
+
+.over .card .card-header .card-title {
+    font-size: 15px;
+}
+
+/* .card-body .btn{
+    margin: 25px 0;
+} */
+
+#profileImage {
+    width: 100%;
+    max-width: 500px;
+}
+
+.fill_search {
+    display: block;
+    background-color: rgb(222 222 222);
+    list-style-type: none;
+    width: 394px;
+    position: absolute;
+    z-index: 11;
+    padding: 0;
+    border-radius: 5px;
+    max-height: 315px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.fill_search:hover > body {
+    overflow: hidden;
+}
+
+.fill_search li a {
+    padding: 10px 20px;
+    background-color: unset;
+    text-align: left;
+    line-height: 24px;
+    margin: 0;
+    z-index: 0;
+    color: black;
+}
+
+.fill_search li a:hover {
+    background: rgb(44, 44, 44);
+    color: rgb(240, 240, 240);
+}
+
+.navbar-collapse .navbar-nav .nav-item .nav-link {
+    color: rgb(108, 117, 125) !important;
+}
+
+/* .aiz-uploader-select{
+    border: solid 2px lightskyblue;
+} */
+.over .card,
+.over .card .card-header {
+    border: none;
+}
+.over .card .card-body {
+    padding-top: 0;
+}
+.card-body .save {
+    margin: 20px 0;
+}
+
+/* .form-control{
+    max-height: 38px;
+} */
+
+.ct a {
+    border-radius: 50%;
+    margin: 0 3px;
+    border: none;
+}
+
+.ct i {
+    color: white;
+    font-size: 18px;
+    line-height: 1.12;
+}
+
+.ct .confirm-delete {
+    background-color: lightcoral;
+}
+.ct .confirm-delete:hover {
+    background-color: rgb(214, 89, 89);
+}
+
+.ct .go-edit {
+    background-color: rgb(111, 192, 219);
+}
+
+.ct .go-edit:hover {
+    background-color: rgb(76, 183, 219);
+}
+
+.ct .go-edit i {
+    margin-left: 2px;
+}
+
+.daterangepicker {
+    width: 400px !important;
+}
+.calendar-table {
+    width: 390px !important;
+}
+
+tbody > tr:last-child > td {
+    border: unset !important;
+}
+
+table {
+    box-shadow: 0 0 13px 0 rgb(82 63 105 / 20%) !important;
+}
+.create-form .card {
+    box-shadow: 0 0 13px 0 rgb(82 63 105 / 14%) !important;
+}
+
+.create-form {
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+}
+.form-control {
+    line-height: 2.3;
+}
+.card-header h5 {
+    font-size: 20px;
+}
+
+.create-form button {
+    height: 42px !important;
+}
+.create-form button .filter-option .filter-option-inner {
+    line-height: 2.3 !important;
+}
+.error {
+    margin-top: 3px;
+    color: rgb(235, 61, 61);
+}
+
+.main_contain .bootstrap-select .dropdown-menu li,
+.bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+    color: white;
+    font-weight: 700 !important;
+}
+.main_contain .dropdown-toggle:after {
+    color: white !important;
+}
+
+#alphay {
+    position: relative;
+}
+
+.main_contain .dropdown-menu .dropdown-item {
+    border-radius: 0 !important;
+    padding: 0 20px !important;
+    text-align: left !important;
+    background-color: #343a40;
+}
+.main_contain .dropdown-item.active,
+.dropdown-item:active {
+    background-color: #3b7ddd;
+    color: #fff;
+}
+
+.main_contain .dropdown-item:hover:not(.active) {
+    background-color: #d34d4d !important;
+    color: rgb(255, 247, 247) !important;
+}
+
+.admin_search-chose:hover {
+    background-color: #3e4a57;
+}
+
+#sort_user .filter-option-inner-inner {
+    color: white;
+}
+
+#subject .filter-option-inner-inner {
+    font-size: 14px;
+    font-weight: 400 !important;
+    color: #495057;
+}
+#subject .dropdown-menu .disabled .text {
+    color: #495057;
+}
+#subject .dropdown-item:hover:not(.active) {
+    color: white;
+    background-color: rgb(153, 199, 241);
+}
+#subject .dropdown-item:hover:not(.active) > .text {
+    color: white;
+}
+#subject .dropdown-item:active > .text {
+    color: white !important;
+}
+
+.customer-form {
+    padding-bottom: 60px;
+}
+.error_noti {
+    color: rgb(230, 49, 49);
+}
+
+#uploader {
+    padding: 10px 22px 0;
+}
+#uploader .align-items-center h1 {
+    font-family: "Zen Tokyo Zoo", cursive;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+#upload-select .admin_search {
+    margin: 0;
+}
+#upload-select .admin_search .admin_search-chose {
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.2 rem;
+    color: #495057;
+    display: block;
+
+}
+
+#upload-select .admin_search .admin_search-chose .filter-option-inner-inner {
+    color: #495057;
+    font-size: 0.875rem;
+    font-weight: 400 !important;
+}
+
+#upload-select .bootstrap-select .dropdown-menu li a{
+    border-radius: unset;
+}
+
+#upload-select .bootstrap-select .dropdown-menu li a span.text{
+    float: left;
+    padding: 0 20px;
+}
+
+.login-admin{
+    height: 100vh !important;
+    /* background-image: url(/public/uploads/all/fJc6om0288M38jFh57hx4CJJ6Kkw6l644Kw3SrCR.jpg) ; */
+    background-image: url(../../../uploads/all/FMVxaQX8hPvp181zYdXBaSI13YYaUsHYYv4O5Wl8.jpg);
+    background-position: center center;
+}
+
+.admin-chose:hover{
+    color:black !important;
+}
+
+.aiz-side-nav-wrap{
+    padding-top: 0 ;
+    padding-botton: 0 ;
+}
+
+.aiz-side-nav-item svg{
+    margin-right: 17px;
+}
+
+.aiz-side-nav-item .aiz-side-nav-list .sidebar-item .sidebar-link svg{
+    visibility: hidden;
+}
+
+.diff{
+    padding-left: 0 !important;
+}
+.preview-color{
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 0 rgb(82 63 105 / 30%) !important;
+}
+
+.high{
+    font-weight: 700;
+}
+.span-size{
+    margin-top: 15px;
+}
+.span-size:first-child{
+    margin-top: 0 ;
+}
+
+.span-left{
+    padding-left: 0;
+    padding-right: 7px;
+}
+.span-right{
+    padding-right: 0;
+    padding-left: 7px;
+}
+
+.hold-span{
+    /* padding: 0; */
+}
+
+.object-spanning{
+    padding: 0;
+    margin: 0;
+    margin-top: 15px;
+}
+
+.add-size{
+    padding-left: 0;
+}
+.del-size{
+    width: 100% !important;
+    height: 100% !important;   
+}
+
+.del-size .la-trash:before{
+font-size: 18px;
+line-height: 1.5;
+}
+
+.del-size:hover >.la-trash{
+    color: white !important;
+    transition: 0.2s;
+}
+
+ .la-list{
+    font-size: 33px;
+}
+
+.la-list:hover{
+    padding: 0 8px;
+    color: lightcoral;
+}
+
+.la-radiation-alt{
+    font-size: 30px;
+}
+
+.stt-active{
+    color: limegreen;
+}
+.stt-deactive{
+    color: maroon;
+}
+
+.input-shipping{
+    border: unset !important;
+    background: unset !important;
+    font-weight: 700 !important;
+}
+
+
+.label-shipping{
+    line-height: 2.2;
+}
+
+.close-shipping{
+    position: relative;
+    left: 88%;
+}
+
+.modal-title-order{
+    font-weight: 700;
+}
+
+.order-modal{
+    padding-top: 0 !important;
+}
+
+.list-product i,
+.list-address i {
+    font-size: 40px;
+    transition: 0.4s;
+}
+
+.list-product i:hover,
+.list-address i:hover{
+    color: #3b7ddd;
+    transition: 0.4s;
+}
+
+.aiz-pagination .pagination{
+    margin-bottom: 50px ;
+}
+
+.la-calendar-alt:before{
+    font-size: 25px;
+}
+
+.la-search:before {
+    font-size: 24px;
+}
+
+.login-admin{
+}
