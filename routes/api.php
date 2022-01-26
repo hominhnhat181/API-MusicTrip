@@ -38,9 +38,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::post('/{id}/update', 'UserController@adminUpdate')->name('profile.update');
             // user 
             Route::prefix('user')->name('user.')->group(function () {
-                Route::apiResource('/', 'UserController');
-                Route::get('/create', 'UserController@create')->name('create');
-                Route::get('/userStatus/{id}', 'UserController@changeStatus')->name('status');
+                Route::resource('/', 'UserController');
                 Route::post('/search', 'UserController@fillSearch')->name('fillSearch');
             });
         });

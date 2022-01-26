@@ -50,8 +50,8 @@
                                 <th class="">ID</th>
                                 <th>Name</th>
                                 <th>Image</th>
-                                <th>Status</th>
                                 <th>Email</th>
+                                <th>User Type</th>
                                 <th>Created at</th>
                                 <th class="center ">Control</th>
                             </tr>
@@ -59,7 +59,7 @@
                         <tbody>
                             @if (!empty($users) && count([$users]))
                                 @foreach ($users as $user)
-                                    <tr>
+                                    <tr class="cms-index">
                                         <td>{{ $user->id }}</td>
                                         <td class="d-none d-xl-table-cell">{{ $user->name }}</td>
                                         <td class="d-none d-xl-table-cell">
@@ -67,14 +67,14 @@
                                         </td>
                                         <td class="d-none d-xl-table-cell">{{ $user->email }}</td>
                                         <td>
-                                        @if ($user->status == 1)
+                                        @if ($user->status != 1)
                                             <span class="badge bg-success">Admin</span>
                                         @else
                                             <span class="badge bg-danger">Customer</span>
                                         @endif
                                         </td>
                                         <td class="d-none d-xl-table-cell">{{ $user->created_at->toDateString() }}</td>
-                                        {{-- <td class="d-none d-md-table-cell center">
+                                        <td class="d-none d-md-table-cell center">
                                             <div class="ct ">
                                                 <a class="btn btn-soft-primary btn-icon btn-circle go-edit btn-sm"
                                                     href="{{ route('admin.user.edit', $user->id) }}"
@@ -88,7 +88,7 @@
                                                     <i class="las la-trash"></i>
                                                 </a>
                                             </div>
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                 @endforeach
                             @endif

@@ -10,6 +10,14 @@ a {
     color: #fff;
 }
 
+.cms-index td{
+    line-height: 2.8;
+}
+
+.cms-index td .ct{
+    margin-top: 7px;
+}
+
 .aiz-side-nav-logo-wrap img{
     height: unset;
     max-height: 55px;
@@ -177,7 +185,7 @@ a {
 }
 
 .main_contain-hover {
-    padding: 22px 25px;
+    padding: 0px 25px 22px;
 }
 
 select {
