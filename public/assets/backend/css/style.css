@@ -96,7 +96,7 @@ a {
 }
 
 .bootstrap-select>.dropdown-toggle{
-    padding: 0 20px ;
+    padding: 0 16px ;
 }
 
 .bootstrap-select .dropdown-menu{
@@ -167,6 +167,36 @@ a {
     background: #fff;
 }
 
+.table_view .bg-danger,
+.table_view .bg-success
+{
+    color: white;
+    font-weight: 600;
+    outline: unset;
+    border: unset;
+}
+
+
+.edit-page .main_contain .bootstrap-select .dropdown-menu li, 
+.edit-page .bootstrap-select .dropdown-toggle .filter-option-inner-inner{
+    font-weight: normal !important;
+    color: #898b92 !important;
+}
+
+.form-group .form-control{
+    height: 40px;
+    border-color: #e2e5ec;
+}
+
+.edit-page .bootstrap-select>.dropdown-toggle{
+    padding: 0 .75rem 0 16px;
+    outline: unset !important;
+}
+
+.aiz-topbar{
+    /* padding: 0 48px !important; */
+}
+
 .main {
     position: relative;
 }
@@ -184,8 +214,12 @@ a {
     font-size: 30px;
 }
 
+.first-column{
+    padding-left: 20px !important;
+}
+
 .main_contain-hover {
-    padding: 0px 25px 22px;
+    padding: 0 10px 22px;
 }
 
 select {
@@ -433,7 +467,7 @@ table {
     height: 42px !important;
 }
 .create-form button .filter-option .filter-option-inner {
-    line-height: 2.3 !important;
+    line-height: 3 !important;
 }
 .error {
     margin-top: 3px;
@@ -441,7 +475,7 @@ table {
 }
 
 .main_contain .bootstrap-select .dropdown-menu li,
-.bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+.main_contain .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
     color: white;
     font-weight: 700 !important;
 }

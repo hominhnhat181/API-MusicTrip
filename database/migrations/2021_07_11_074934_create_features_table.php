@@ -16,7 +16,7 @@ class CreateFeaturesTable extends Migration
         Schema::create('features', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('status',[1,2])->default(1)->nullable()->comment('0=not verify,1=active,2=deactive');
+            $table->enum('status',[1,2])->default(1)->nullable()->comment('1=active,2=deactive');
             $table->timestamps();
         });
     }

@@ -25,7 +25,7 @@ class AuthService
         $data = [
             'email' => $providerUser->getEmail() ?? $providerUser->getNickname(),
             'name' => $providerUser->getName(),
-            // 'status' => '1',
+            'status' => '1',
             'verified_at' => now()
         ];
         if($social == 'google'){

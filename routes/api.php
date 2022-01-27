@@ -25,12 +25,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::get('/userdata', 'AuthController@userdata')->name('user.api');
             Route::get('/logout', 'AuthController@logout')->name('admin.logout');
         });
-        // AIZ
-        Route::namespace('App\Http\Controllers')->group(function () {
-            Route::any('/uploaded-files/file-info', 'AizUploadController@file_info')->name('uploaded-files.info');
-            Route::resource('/uploaded-files', 'AizUploadController');
-            Route::get('/uploaded-files/destroy/{id}', 'AizUploadController@destroy')->name('uploaded-files.destroy');
-        });
         // ADMIN
         Route::namespace('App\Http\Controllers\Api\Admin')->name('admin.')->group(function () {
             Route::get('/', 'DashboardController@index')->name('dashboard');
@@ -41,11 +35,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
                 Route::resource('/', 'UserController');
                 Route::post('/search', 'UserController@fillSearch')->name('fillSearch');
             });
-        });
+            // user 
+            Route::prefix('feature')->name('feature.')->group(function () {
+                Route::apiResource('/', 'FeatureController', ['parameters' => ['' => 'id']]);
+                Route::get('status/{id}', 'FeatureController@changeStatus')->name('status');
+            });
+        }); 
     });
 });
-
-
 
  // // artist
         // Route::prefix('artist')->name('artist.')->group(function () {

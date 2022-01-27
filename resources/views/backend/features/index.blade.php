@@ -1,12 +1,12 @@
 @extends('backend.layouts.app')
 @section('title')
-    Users
+    Features
 @endsection
 @section('content')
     <div id="pages" class="main_contain">
         <div class="main_contain-hover">
             <div class="main_contain-title ">
-                <h2>USERS</h2>
+                <h2>Features</h2>
             </div>
             <form class="" id=" sort_user" action="" method="GET">
                 <div class="row ">
@@ -25,8 +25,8 @@
                     <div class="admin_search col-xl-3 col-md-5" id="alphay">
                         <select class="admin_search-chose aiz-selectpicker form-control" id="select_user" name="admin">
                             <option selected value="">-- Status --</option>
-                            <option value="2" {{ request('admin') == 2 ? 'selected' : '' }}>Customer</option>
-                            <option value="1" {{ request('admin') == 1 ? 'selected' : '' }}>Admin</option>
+                            <option value="2" {{ request('status') == 2 ? 'selected' : '' }}>Active</option>
+                            <option value="1" {{ request('status') == 1 ? 'selected' : '' }}>Deactive</option>
                         </select>
                     </div>
                     <?php
@@ -35,9 +35,9 @@
                     ?>
                     <div class="admin_search col-xl-5 col-md-12 row" id="omega">
                         <button type="submit" class="admin_search-btn col-md" href="">Search</button>
-                        <a class="admin_search-btn col-md" href="{{ route('admin.user.index') }}">Reset</a>
+                        <a class="admin_search-btn col-md" href="{{ route('admin.feature.index') }}">Reset</a>
                         <a class="admin_search-btn col-md" href="">Excel</a>
-                        <a class="admin_search-btn col-md" href="{{ Route('admin.user.create') }}">Create</a>
+                        <a class="admin_search-btn col-md" href="{{ Route('admin.feature.create') }}">Create</a>
                     </div>
                 </div>
             </form>
@@ -47,43 +47,40 @@
                     <table class="table table-hover my-0">
                         <thead class="thead-dark">
                             <tr>
-                                <th class="">ID</th>
+                                <th class="first-column">ID</th>
                                 <th>Name</th>
-                                <th>Image</th>
-                                <th>Email</th>
-                                <th>User Type</th>
-                                <th>Created at</th>
-                                <th class="center ">Control</th>
+                                <th class="center">Created at</th>
+                                <th class="center">Status</th>
+                                <th class="center" width=11%>Control</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if (!empty($users) && count([$users]))
-                                @foreach ($users as $user)
+                            @if (!empty($features) && count([$features]))
+                                @foreach ($features as $feature)
                                     <tr class="cms-index">
-                                        <td>{{ $user->id }}</td>
-                                        <td class="d-none d-xl-table-cell">{{ $user->name }}</td>
-                                        <td class="d-none d-xl-table-cell">
-                                            <img style="width: 50px; height:50px" src="{{ asset($user->image) }}" alt="">
+                                        <td class="first-column">{{ $feature->id }}</td>
+                                        <td class="d-none d-xl-table-cell">{{ $feature->name }}</td>
+                                        <td class="d-none d-xl-table-cell center">{{ $feature->created_at->format('d-m-Y') }}</td>
+                                        <td class="center">
+                                            <a href="{{route('admin.feature.status',  $feature->id)}}" data-toggle="modal"
+                                                data-target="#ModalCenterS{{ $feature->id }}">
+                                                @if ($feature->status != 1)
+                                                    <button type="submit" class="badge bg-danger">Deactive</button>
+                                                @else
+                                                    <button type="submit" class="badge bg-success">Active</button>
+                                                @endif
+                                            </a>
                                         </td>
-                                        <td class="d-none d-xl-table-cell">{{ $user->email }}</td>
-                                        <td>
-                                        @if ($user->status != 1)
-                                            <span class="badge bg-success">Admin</span>
-                                        @else
-                                            <span class="badge bg-danger">Customer</span>
-                                        @endif
-                                        </td>
-                                        <td class="d-none d-xl-table-cell">{{ $user->created_at->toDateString() }}</td>
                                         <td class="d-none d-md-table-cell center">
                                             <div class="ct ">
                                                 <a class="btn btn-soft-primary btn-icon btn-circle go-edit btn-sm"
-                                                    href="{{ route('admin.user.edit', $user->id) }}"
+                                                    href="{{ route('admin.feature.edit', $feature->id) }}"
                                                     title="{{ translate('Edit') }}">
                                                     <i class="las la-edit"></i>
                                                 </a>
                                                 <a href="#"
                                                     class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete"
-                                                    data-href="{{ route('admin.user.destroy', $user->id) }}"
+                                                    data-href="{{ route('admin.feature.destroy', $feature->id) }}"
                                                     title="{{ translate('Delete') }}">
                                                     <i class="las la-trash"></i>
                                                 </a>
@@ -96,9 +93,35 @@
                     </table>
                 </div>
             </div>
-            {{ $users->appends(request()->input())->links('vendor.pagination.default') }}
+            {{ $features->appends(request()->input())->links('vendor.pagination.default') }}
         </div>
     </div>
+
+    @foreach ($features as $feature)
+<!-- Modal status-->
+<div class="modal fade" id="ModalCenterS{{ $feature->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLongTitle">Change Status Feature</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure about that?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="{{ Route('admin.feature.status', $feature->id) }}"><button type="button"
+                        class="btn btn-primary">Save changes</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
 @endsection
 
 @section('modal')
@@ -109,23 +132,23 @@
     <script>
         // search
         $(document).ready(function() {
-            $('.admin_search-input').keyup(function() { //bắt sự kiện keyup khi người dùng gõ từ khóa tim kiếm
-                var query = $(this).val(); //lấy gía trị ng dùng gõ
+            $('.admin_search-input').keyup(function() { 
+                var query = $(this).val(); 
                 if (query != '') {
 
                     $.ajax({
-                        url: "{{ route('admin.user.fillSearch') }}", // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
-                        method: "POST", // phương thức gửi dữ liệu.
+                        url: "{{ route('admin.feature.fillSearch') }}", 
+                        method: "POST", // 
                         data: {
                             query: query,
                             "_token": "{{ csrf_token() }}"
                         },
-                        success: function(data) { //dữ liệu nhận về
+                        success: function(data) { 
                             $('#objectList').fadeIn();
-                            $('#objectList').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là objectList
+                            $('#objectList').html(data); 
                         },
                         error: function(xhr) {
-                            console.log(xhr.responseText); // Save time
+                            console.log(xhr.responseText);
                         }
                     });
                 }

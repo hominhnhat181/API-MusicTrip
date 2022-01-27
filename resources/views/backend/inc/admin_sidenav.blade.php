@@ -15,6 +15,13 @@
                         <span class="aiz-side-nav-text">{{translate('Dashboard')}}</span>
                     </a>
                 </li>
+                {{-- features --}}
+                <li class="aiz-side-nav-item">
+                    <a href="{{route('admin.feature.index')}}" class="aiz-side-nav-link">
+                        <i class="las la-user-friends aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ translate('Feature') }}</span>
+                    </a>
+                </li>
                 <!-- Customers -->
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">
@@ -30,6 +37,7 @@
                         </li>
                     </ul>
                 </li>
+                
                 <!-- Setup & Configurations -->
                 {{-- <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">

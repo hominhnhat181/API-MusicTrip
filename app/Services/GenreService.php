@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\Tag;
 
-class TagService extends BaseService
+class GenreService extends BaseService
 {
     public function getModel()
     {

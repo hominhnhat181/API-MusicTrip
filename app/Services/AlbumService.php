@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\Album;
 
-class AdminService extends BaseService
+class AlbumService extends BaseService
 {
     public function getModel()
     {
