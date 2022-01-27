@@ -12,27 +12,27 @@
                 <li class="aiz-side-nav-item">
                     <a href="{{route('admin.dashboard')}}" class="aiz-side-nav-link">
                         <i class="las la-home aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{translate('Dashboard')}}</span>
+                        <span class="aiz-side-nav-text">{{translate('DASHBOARD')}}</span>
                     </a>
                 </li>
                 {{-- features --}}
                 <li class="aiz-side-nav-item">
                     <a href="{{route('admin.feature.index')}}" class="aiz-side-nav-link">
-                        <i class="las la-user-friends aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{ translate('Feature') }}</span>
+                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ translate('FEATURES') }}</span>
                     </a>
                 </li>
                 <!-- Customers -->
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">
                         <i class="las la-user-friends aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{ translate('Users') }}</span>
+                        <span class="aiz-side-nav-text">{{ translate('USERS') }}</span>
                         <span class="aiz-side-nav-arrow"></span>
                     </a>
                     <ul class="aiz-side-nav-list level-2">
                         <li class="aiz-side-nav-item">
                             <a href="{{ route('admin.user.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['admin.users.*'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('User list') }}</span>
+                                <span class="aiz-side-nav-text">{{ translate('USER LIST') }}</span>
                             </a>
                         </li>
                     </ul>

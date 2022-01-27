@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+use App\Enums\AtributeType;
 
 class BaseService
 {
@@ -96,5 +97,34 @@ class BaseService
         }
         $st->save();
         flash("Status Change Success")->success();
+    }
+
+    public function getData($request, $is_paginate = 0)
+    {
+        $objects = $this->_model::orderBy('id', 'desc');
+        if ($request->search) {
+            $search = $request->search;
+            $objects = $objects->where(function ($alb) use ($search) {
+                $alb->Where($this->_model::raw("CONCAT('#',id)"), 'like', "%$search%")
+                    ->orwhere('name', 'like', "%$search%");
+            });
+        }
+        if ($request->status) {
+            if ($request->status !=  AtributeType::ACTIVE) {
+                $objects = $objects->where('status',AtributeType::DEACTIVE);
+            } else {
+                $objects = $objects->where('status', AtributeType::ACTIVE);
+            }
+        }
+      
+        if ($request->joined_date) {
+            $objects = $objects->whereDate('created_at', $request->joined_date);
+        }
+        if ($is_paginate) {
+            $objects = $objects->paginate($is_paginate);
+        } else {
+            $objects = $objects->get();
+        }
+        return $objects;
     }
 }

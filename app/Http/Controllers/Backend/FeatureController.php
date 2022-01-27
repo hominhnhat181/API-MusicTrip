@@ -16,9 +16,9 @@ class FeatureController extends Controller
         $this->featureService = $featureService;
     }
 
-    public function index()
+    public function index(Request $request)
     {   
-        $features = Feature::paginate(10);
+        $features = $this->featureService->getData($request, 8);
         return view('backend.features.index', compact('features'));
     }
 
@@ -31,16 +31,8 @@ class FeatureController extends Controller
     
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'status' =>'required'
-        ]);
-        $data =[
-            'name' => $request->name,
-            'status' => $request->status
-        ];
-        $this->featureService->store($data);
-
+        $attributes = $request->all();
+        $this->featureService->store($attributes);
         flash("Add Feature Success")->success();
         return redirect()->route('admin.feature.index');
 
@@ -68,12 +60,8 @@ class FeatureController extends Controller
     
     public function update(Request $request, $id)
     {
-        $feature = Feature::findOrFail($id);
-        if($feature){
-            $feature->name = $request->name;
-            $feature->status = $request->status;
-            $feature->save();
-        }
+        $attributes = $request->except('_token', '_method');
+        $this->featureService->update($id, $attributes);
         flash("Update Feature Success")->success();
         return redirect()->route('admin.feature.index');
     }
@@ -81,10 +69,7 @@ class FeatureController extends Controller
    
     public function destroy($id)
     {
-        $feature = Feature::find($id);
-        if($feature){
-            $feature->delete();
-        }
+        $this->featureService->destroy($id);
         flash("Delete Feature Success")->success();
         return redirect()->route('admin.feature.index');
     }

@@ -163,6 +163,22 @@ a {
     transition: 0.4s;
 }
 
+.aiz-side-nav-item .active .las{
+    color: white;
+}
+.aiz-side-nav-link:hover > .las{
+    color: white !important;
+}
+
+.level-2-active .las{
+    color: white;
+}
+
+/* .aiz-side-nav-item .aiz-side-nav-link:hover > i {
+    color: white;
+} */
+
+
 .table > tbody > tr > td {
     background: #fff;
 }
