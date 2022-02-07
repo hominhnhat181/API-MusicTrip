@@ -127,4 +127,15 @@ class BaseService
         }
         return $objects;
     }
+
+    public function requestImg($requestImg){
+        $image = NULL;
+        if(!empty($requestImg)){
+            $url = api_asset($requestImg);
+            if(!empty($url)){
+                $image = $url;
+            }
+        }
+        return $image;
+    }
 }

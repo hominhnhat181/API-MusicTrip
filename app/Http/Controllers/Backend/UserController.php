@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Controllers\API\BaseController as BaseController;
 class UserController extends Controller
 {
     
@@ -24,8 +23,10 @@ class UserController extends Controller
 
     public function index(Request $request)
     {   
+       
         $users = $this->getData($request, 8);
-        return view('backend.user.index', compact('users'));
+      
+        return view('backend.users.index', compact('users'));
     }
     
     public function getData($request, $is_paginate = 0)
@@ -65,12 +66,12 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('backend.user.create');
+        return view('backend.users.create');
     }
 
    
     
-    public function store(AuthRequest $request)
+    public function store(Request $request)
     {
         $dataUser = $request->all();
 
@@ -124,5 +125,9 @@ class UserController extends Controller
        $this->userService->destroy($id);
         Flash("Delete User Success")->success();
         return redirect()->back();
+    }
+
+    public function test(){
+        return view('backend.auth.test');
     }
 }

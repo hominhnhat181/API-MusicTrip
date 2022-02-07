@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="{{ static_asset('assets/backend/css/aiz-core.css?v=' . time()) }}">
     <link rel="stylesheet" href="{{ static_asset('assets/backend/css/style.css?v=' . time()) }}">
     <!-- Favicon -->
-    <title>{{ config('app.name', 'Rehau') }}</title>
-    <link rel="shortcut icon" type="image/png" href="{{ my_asset('assets/img/title-logo.png') }}" />
+    <title>{{ config('app.name', 'MUSIC TRIP') }}</title>
+    {{-- <link rel="shortcut icon" type="image/png" href="{{ my_asset('assets/img/title-logo.png') }}" /> --}}
     <script> var AIZ = AIZ || {}; </script>
 
     @yield('css')
@@ -52,6 +52,7 @@
     <script defer src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
     <script src="{{ static_asset('assets/backend/js/vendors.js') }}"></script>
     <script src="{{ static_asset('assets/backend/js/aiz-core.js') }}"></script>
 

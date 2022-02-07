@@ -12,7 +12,6 @@ use Image;
 class AizUploadController
 {
 
-
     public function index(Request $request){
 
         $all_uploads = Upload::query();
