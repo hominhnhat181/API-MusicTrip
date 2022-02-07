@@ -37,7 +37,18 @@
                         </li>
                     </ul>
                 </li>
-                
+                {{-- <li class="sidebar-item  {{ request()->is('admin/uploads*') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{ Route('admin.uploaded-files.index') }}">
+                        <i class="align-middle" data-feather="file"></i> <span
+                            class="align-middle">{{ __('dashboard.side_uploads') }}</span>
+                    </a>
+                </li> --}}
+                <li class="aiz-side-nav-item">
+                    <a href="{{route('uploaded-files.index')}}" class="aiz-side-nav-link">
+                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ translate('UPLOADS') }}</span>
+                    </a>
+                </li>
                 <!-- Setup & Configurations -->
                 {{-- <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">
