@@ -35,7 +35,7 @@ class BaseService
 
     public function find($id)
     {
-        $result = $this->_model->where('id', $id)->get();
+        $result = $this->_model->where('id', $id)->first();
         return $result;
     }
 

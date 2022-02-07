@@ -18,6 +18,16 @@ a {
     margin-top: 7px;
 }
 
+.input-group-text{
+    max-height: 40px;
+}
+
+.file-amount{
+    line-height: 1.5 !important;
+}
+
+
+
 .aiz-side-nav-logo-wrap img{
     height: unset;
     max-height: 55px;

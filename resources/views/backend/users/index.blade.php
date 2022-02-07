@@ -63,7 +63,7 @@
                                         <td>{{ $user->id }}</td>
                                         <td class="d-none d-xl-table-cell">{{ $user->name }}</td>
                                         <td class="d-none d-xl-table-cell">
-                                            <img style="width: 50px; height:50px" src="{{ asset($user->image) }}" alt="">
+                                            <img style="width: 50px;height:50px;border-radius: 50%;" src="{{ asset($user->image) }}" alt="">
                                         </td>
                                         <td class="d-none d-xl-table-cell">{{ $user->email }}</td>
                                         <td>

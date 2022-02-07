@@ -78,12 +78,16 @@ class UserController extends Controller
         $image = $this->userService->requestImg($request->image);
         $dataUser['image'] = $image;
         // create in admin page, create admin member !
-        $dataUser['admin'] = 2;
+        $dataUser['user_type'] = 1;
         $dataUser['password'] = Hash::make($request->password);
 
-        $this->userService->store($dataUser);
-        flash("Create New User Success")->success();
+        $success = $this->userService->store($dataUser);
 
+        if(!$success){
+            flash("Create User Failed")->error();
+            return redirect()->back();
+        }
+        flash("Create User Success")->success();
         return redirect()->Route('admin.user.index');
     }
 
@@ -98,7 +102,7 @@ class UserController extends Controller
     {
         $user = $this->userService->find($id);
         $file = Upload::where('file_name',$user->image)->first();
-        return view('backend.user.edit', compact('user','file'));
+        return view('backend.users.edit', compact('user','file'));
     }
 
     
@@ -116,18 +120,13 @@ class UserController extends Controller
 
         $this->userService->update($id, $dataUser);
         Flash("Update User Success")->success();
-
         return redirect()->Route('admin.user.index');
     }
 
     public function destroy($id)
     {
-       $this->userService->destroy($id);
+        $this->userService->destroy($id);
         Flash("Delete User Success")->success();
         return redirect()->back();
-    }
-
-    public function test(){
-        return view('backend.auth.test');
     }
 }

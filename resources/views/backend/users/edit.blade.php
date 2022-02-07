@@ -35,18 +35,29 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label">{{ translate('Address 1') }}
+                        {{-- <div class="form-group row">
+                            <label class="col-md-3 col-form-label">{{ translate('Phone Number') }}
                                 <span class="text-danger">*</span></label>
                             <div class="col-md-9">
-                                <input type="text" placeholder="{{ translate('Address 1') }}" value="{{$user->address_1}}" id="address_1" name="address_1"
+                                <input type="text" placeholder="{{ translate('Phone Number') }}"  value="{{$user->phone_number}}" id="phone" name="phone_number"
                                     class="form-control" required>
-                                @error('address_1')
+                                @error('mobile')
+                                    <strong class="error_noti">{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div> --}}
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">{{ translate('Address ') }}
+                                <span class="text-danger">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" placeholder="{{ translate('Address') }}" value="{{$user->address}}" id="address" name="address"
+                                    class="form-control" required>
+                                @error('address')
                                     <strong class="error_noti">{{$message}}</strong>
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-md-3 col-form-label">{{ translate('Address 2') }}
                                 <span class="text-danger">*</span></label>
                             <div class="col-md-9">
@@ -56,14 +67,14 @@
                                     <strong class="error_noti">{{$message}}</strong>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">{{ translate('City') }}
                                 <span class="text-danger">*</span></label>
                             <div class="col-md-9">
-                                <input type="text" placeholder="{{ translate('City') }}" value="{{$user->city_id}}" id="city_id" name="city_id"
+                                <input type="text" placeholder="{{ translate('City') }}" value="{{$user->provinces_id}}" id="provinces_id" name="provinces_id"
                                     class="form-control" >
-                                @error('city_id')
+                                @error('provinces_id')
                                     <strong class="error_noti">{{$message}}</strong>
                                 @enderror
                             </div>
@@ -108,17 +119,6 @@
                                 <input type="password" placeholder="{{ translate('Confirm Password') }}"  id="password_confirmation" name="password_confirmation"
                                     class="form-control" >
                                 @error('password_confirmation')
-                                    <strong class="error_noti">{{$message}}</strong>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label">{{ translate('Phone Number') }}
-                                <span class="text-danger">*</span></label>
-                            <div class="col-md-9">
-                                <input type="text" placeholder="{{ translate('Phone Number') }}"  value="{{$user->phone_number}}" id="phone" name="phone_number"
-                                    class="form-control" required>
-                                @error('mobile')
                                     <strong class="error_noti">{{$message}}</strong>
                                 @enderror
                             </div>

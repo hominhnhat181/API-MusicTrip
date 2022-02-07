@@ -400,7 +400,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                         if (data[i].type === "image") {
                             thumb =
                                 '<img src="' +
-                                AIZ.data.fileBaseUrl +
+                                window.location.origin + '/' +
                                 data[i].file_name +
                                 '" class="img-fit">';
                         } else {
@@ -495,7 +495,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                                 if (data[i].type === "image") {
                                     thumb =
                                         '<img src="' +
-                                        AIZ.data.fileBaseUrl +
+                                        window.location.origin + '/' +
                                         data[i].file_name +
                                         '" class="img-fit">';
                                 } else {
@@ -751,6 +751,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                 }
             });
         },
+        // Preview in page
         previewGenerate: function(){
             $('[data-toggle="aizuploader"]').each(function () {
                 var $this = $(this);
@@ -776,7 +777,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                                 if (data[i].type === "image") {
                                     thumb =
                                         '<img src="' +
-                                        AIZ.data.fileBaseUrl +
+                                        window.location.origin + '/' +
                                         data[i].file_name +
                                         '" class="img-fit">';
                                 } else {
@@ -1406,9 +1407,9 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
         deleteConfirm: function () {
             $(".confirm-delete").click(function (e) {
                 e.preventDefault();
-                var url = $(this).data("href");
+                var url = $(this).attr("data-href");
                 $("#delete-modal").modal("show");
-                $("#delete-link").parents('form').attr("action", url);
+                $("#delete-link").attr("action", url);
             });
 
             $(".confirm-cancel").click(function (e) {

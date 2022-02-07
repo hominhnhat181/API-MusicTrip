@@ -1,5 +1,5 @@
 <!-- delete Modal -->
-<form action="" method="post"  id="delete-link">
+<form action="" method="post" id="delete-link">
     @csrf {{method_field('delete')}}
     <div id="delete-modal" class="modal fade">
         <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -10,9 +10,8 @@
                 </div>
                 <div class="modal-body text-center">
                     <p class="mt-1">{{ translate('Are you sure to delete this?') }}</p>
-                    <button type="button" class="btn btn-link mt-2"
-                        data-dismiss="modal" style="color:black">{{ translate('Cancel') }}</button>
-                    <button type="submit" class="btn btn-primary btn-rehau-success mt-2">{{ translate('Delete') }}</a>
+                    <button type="button" class="btn btn-link mt-2" data-dismiss="modal" style="color:black">{{ translate('Cancel') }}</button>
+                    <button type="submit" class="btn btn-primary btn-rehau-success mt-2">{{ translate('Delete') }}</button>
                 </div>
             </div>
         </div>

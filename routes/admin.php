@@ -27,7 +27,7 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Backend'
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     // user
     Route::prefix('user')->name('user.')->group(function () {
-        Route::resource('/', 'UserController');
+        Route::resource('/', 'UserController', ['parameters' => ['' => 'id']]);
         Route::post('/search', 'UserController@fillSearch')->name('fillSearch');
     });
     // feature 

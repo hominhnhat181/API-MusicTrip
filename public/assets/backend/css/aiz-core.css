@@ -4976,7 +4976,7 @@ input[type="number"] {
 .file-preview.box .remove .btn {
     padding: 0;
     width: 26px;
-    height: 26px;
+    height: 26px !important;
     border-radius: 50%;
     background: #eaeaea;
 }

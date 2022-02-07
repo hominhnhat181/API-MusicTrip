@@ -11,7 +11,7 @@
                     <h5 class="mb-0 h6">{{ translate('Customer Information') }}</h5>
                 </div>
                 <div class="card-body">
-                    <form class="form-horizontal" action="{{ route('admin.user.store') }}" method="GET" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="{{ route('admin.user.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf {{method_field('POST')}}
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">{{ translate('Name') }}
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label">{{ translate('Address 1') }}
+                            <label class="col-md-3 col-form-label">{{ translate('Address') }}
                                 <span class="text-danger">*</span></label>
                             <div class="col-md-9">
                                 <input type="text" placeholder="{{ translate('Address 1') }}" value="{{old('address_1')}}" id="address_1" name="address_1"
@@ -46,24 +46,14 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label">{{ translate('Address 2') }}
-                                <span class="text-danger">*</span></label>
-                            <div class="col-md-9">
-                                <input type="text" placeholder="{{ translate('Address 2') }}" value="{{old('address_2')}}" id="address_2" name="address_2"
-                                    class="form-control" >
-                                @error('address_2')
-                                    <strong class="error_noti">{{$message}}</strong>
-                                @enderror
-                            </div>
-                        </div>
+                        
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">{{ translate('City') }}
                                 <span class="text-danger">*</span></label>
                             <div class="col-md-9">
-                                <input type="text" placeholder="{{ translate('City') }}" value="{{old('city_id')}}" id="city_id" name="city_id"
+                                <input type="text" placeholder="{{ translate('City') }}" value="{{old('provinces_id')}}" id="provinces_id" name="provinces_id"
                                     class="form-control" >
-                                @error('city_id')
+                                @error('provinces_id')
                                     <strong class="error_noti">{{$message}}</strong>
                                 @enderror
                             </div>
@@ -113,18 +103,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label">{{ translate('Phone Number') }}
-                                <span class="text-danger">*</span></label>
-                            <div class="col-md-9">
-                                <input type="text" placeholder="{{ translate('Phone Number') }}"  id="phone_number" name="phone_number"
-                                    class="form-control" required>
-                                @error('mobile')
-                                    <strong class="error_noti">{{$message}}</strong>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label" for="signinSrEmail">{{ translate('Image') }}</label>
+                            <label class="col-md-3 col-form-label" for="signinSrEmail">{{ translate('Avatar') }}</label>
                             <div class="col-md-9">
                                 <div class="input-group" data-toggle="aizuploader" data-type="image">
                                     <div class="input-group-prepend">
