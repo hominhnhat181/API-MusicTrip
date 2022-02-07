@@ -22,7 +22,7 @@ Route::namespace('App\Http\Controllers')->group(function(){
 });
 
 
-Route::get('/sd', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 

@@ -12,16 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::namespace('App\Http\Controllers')->group(function () {
-    Route::any('/uploaded-files/file-info', 'AizUploadController@file_info')->name('uploaded-files.info');
-    Route::resource('/uploaded-files', 'AizUploadController');
-    Route::get('/uploaded-files/destroy/{id}', 'AizUploadController@destroy')->name('uploaded-files.destroy');
-});
+Route::group(['prefix' => 'admin'], function () {
+    Route::namespace('App\Http\Controllers')->group(function () {
+        Route::any('/uploaded-files/file-info', 'AizUploadController@file_info')->name('uploaded-files.info');
+        Route::resource('/uploaded-files', 'AizUploadController');
+        Route::get('/uploaded-files/destroy/{id}', 'AizUploadController@destroy')->name('uploaded-files.destroy');
+    });
+}); 
 
 
 Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Backend')->group(function () {
-   
-
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::get('/userdata', 'Auth\LoginController@userdata')->name('');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
