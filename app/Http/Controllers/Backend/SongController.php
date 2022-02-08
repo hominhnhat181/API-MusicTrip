@@ -42,9 +42,12 @@ class SongController extends Controller
     {
         $attributes = $request->all();
         $attributes['image'] = $this->songService->requestImg($request->image);
+        $attributes['song'] = $this->songService->requestImg($request->song);
+
         $this->songService->store($attributes);
-        flash("Add Song Success")->success();
-        return redirect()->route('admin.song.index');
+        // flash("Add Song Success")->success();
+        // return redirect()->route('admin.song.index');
+        dd($attributes);
 
     }
 
@@ -66,8 +69,10 @@ class SongController extends Controller
         $albums = Album::where('status', AlbumStatus::ACTIVE)->get();
         $artists = Artist::where('status', ArtistStatus::ACTIVE)->get();
         $tags = Tag::where('status', TagStatus::ACTIVE)->get();
-        $file = Upload::where('file_name',$song->image)->first();
-        return view('backend.songs.edit', compact('song','file','albums','artists','tags'));   
+        $image = Upload::where('file_name',$song->image)->first();
+        $track = Upload::where('file_name',$song->song)->first();
+
+        return view('backend.songs.edit', compact('song','image','albums','artists','tags','track'));   
     }
 
     
