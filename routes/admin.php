@@ -46,4 +46,14 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Backend'
         Route::get('status/{id}', 'ArtistController@changeStatus')->name('status');
         Route::post('search', 'ArtistController@fillSearch')->name('fillSearch');
     });
+    Route::prefix('tag')->name('tag.')->group(function () {
+        Route::resource('/', 'TagController', ['parameters' => ['' => 'id']]);
+        Route::get('status/{id}', 'TagController@changeStatus')->name('status');
+        Route::post('search', 'TagController@fillSearch')->name('fillSearch');
+    });
+    Route::prefix('song')->name('song.')->group(function () {
+        Route::resource('/', 'SongController', ['parameters' => ['' => 'id']]);
+        Route::get('status/{id}', 'SongController@changeStatus')->name('status');
+        Route::post('search', 'SongController@fillSearch')->name('fillSearch');
+    });
 });

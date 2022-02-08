@@ -36,6 +36,20 @@
                         <span class="aiz-side-nav-text">{{ translate('ARTISTS') }}</span>
                     </a>
                 </li>
+                 {{-- Tag --}}
+                 <li class="aiz-side-nav-item">
+                    <a href="{{route('admin.tag.index')}}" class="aiz-side-nav-link">
+                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ translate('TAGS') }}</span>
+                    </a>
+                </li>
+                 {{-- Song --}}
+                 <li class="aiz-side-nav-item">
+                    <a href="{{route('admin.song.index')}}" class="aiz-side-nav-link">
+                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ translate('TRACKS') }}</span>
+                    </a>
+                </li>
                 <!-- Customers -->
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">

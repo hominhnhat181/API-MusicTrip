@@ -487,9 +487,11 @@ table {
     margin-bottom: 100px;
 
 }
-.form-control {
+
+/* .form-control {
     line-height: 2.3;
-}
+} */
+
 .card-header h5 {
     font-size: 20px;
 }
