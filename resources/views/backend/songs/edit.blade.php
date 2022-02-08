@@ -25,6 +25,7 @@
                                     @enderror
                                 </div>
                             </div>
+                            
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label"
                                     for="signinSrEmail">{{ translate('Image') }}</label>
@@ -38,25 +39,27 @@
                                         <div class="form-control file-amount">{{ translate('Choose File') }}</div>
                                         <input type="hidden" value="{{ $image->id ?? 0 }}" name="image" class="selected-files">
                                     </div>
-                                    {{-- review upload Image --}}
-                                    <div class="file-preview box sm">
-                                    </div>
+                                    <div class="file-preview box sm"> </div>
                                 </div>
                             </div>
+
                             <div class="form-group row align-items-baseline">
                                 <label class="col-sm-3 col-from-label">{{ __('Tracks') }}: <span
                                         class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <div class="input-group" data-toggle="aizuploader" data-type="all">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text bg-soft-secondary font-weight-medium"> {{ translate('Browse') }}</div>
+                                            <div class="input-group-text bg-soft-secondary font-weight-medium"> 
+                                                {{ translate('Browse') }}
+                                            </div>
                                         </div>
                                         <div class="form-control file-amount">{{ translate('Choose File') }}</div>
-                                        <input type="hidden" name="song"  value="{{ $track->id ?? 0 }}" id="upload_id" class="selected-files">
+                                        <input type="hidden" name="song"  value="{{ $track->id ?? 0 }}" class="selected-files">
                                     </div>
                                     <div class="file-preview box sm"></div>
                                 </div>
                             </div>
+
                             <div class="form-group row align-items-baseline">
                                 <label class="col-lg-3 col-from-label" for="type">{{ translate('Feature') }} <span
                                         class="text-danger">*</span></label>
