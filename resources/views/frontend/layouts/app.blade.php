@@ -1,92 +1,101 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="app-url" content="{{ env('APP_URL') }}">
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- header css -->
-    <link rel="stylesheet" href="{{ static_asset('assets/css/header.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
-    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
-    {{-- css --}}
-    <link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css?v=' . time()) }}">
-    <link rel="stylesheet" href="{{ static_asset('assets/css/vendors.css?v=' . time()) }}">
-
-
-    <!-- Favicon -->
-    <title>{{ config('app.name', 'Rehau') }}</title>
-    <link rel="shortcut icon" type="image/png" href="{{ my_asset('assets/img/title-logo.png') }}" />
-    @yield('css')
-
-    <script>
-        var AIZ = AIZ || {};
-        AIZ.local = {
-            nothing_found: "{{ translate('Nothing found') }}",
-            choose_file: "{{ translate('Choose file') }}",
-            file_selected: "{{ translate('File selected') }}",
-            files_selected: "{{ translate('Files selected') }}",
-            add_more_files: "{{ translate('Add more files') }}",
-            adding_more_files: "{{ translate('Adding more files') }}",
-            drop_files_here_paste_or: "{{ translate('Drop files here, paste or') }}",
-            browse: "{{ translate('Browse') }}",
-            upload_complete: "{{ translate('Upload complete') }}",
-            upload_paused: "{{ translate('Upload paused') }}",
-            resume_upload: "{{ translate('Resume upload') }}",
-            pause_upload: "{{ translate('Pause upload') }}",
-            retry_upload: "{{ translate('Retry upload') }}",
-            cancel_upload: "{{ translate('Cancel upload') }}",
-            uploading: "{{ translate('Uploading') }}",
-            processing: "{{ translate('Processing') }}",
-            complete: "{{ translate('Complete') }}",
-            file: "{{ translate('File') }}",
-            files: "{{ translate('Files') }}",
-        }
-    </script>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{-- plugin --}}
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  {{-- player --}}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Fonts and icons -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/7061c063c6.js" crossorigin="anonymous"></script>
+  {{-- css --}}
+  <link rel="stylesheet" href="{{ asset('assets/frontend/css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+  <link href="{{asset('assets/frontend/css/material-dashboard.css')}}" rel="stylesheet" />
+  {{-- <link rel="stylesheet" href="{{ asset('assets/back/css/auth_img.css') }}"> --}}
+  {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/player.css') }}"> --}}
+  <title>Home</title>
 </head>
 
-<body>
-    @include('frontend.inc.header')
+<body class="dark-edition">
+  {{-- <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=495127995056192&autoLogAppEvents=1"
+    nonce="mgnraTKs"></script> --}}
 
-    @yield('content')
+  @include('frontend.inc.header')
+  @include('frontend.inc.sidebar')
 
-    @include('frontend.inc.footer')
+  @yield('content')
 
-    @include('frontend.auth.register_popup')
-
-    @yield('modal')
-
-    <script src="{{ static_asset('assets/js/vendors.js') }}"></script>
-    <script src="{{ static_asset('assets/js/aiz-core.js') }}"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script defer src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
-
-    @guest
-    @include('frontend.auth.register-script')
-    @endguest
-
-    @yield('script')
-
-    <script type="text/javascript">
-        @foreach(session('flash_notification', collect())->toArray() as $message)
-        message = "{{ $message['message'] }}"
-        level = "{{ $message['level'] }}"
-        startOption = message.indexOf("{");
-        endOption = message.indexOf("}");
-        options = message.substring(startOption, endOption + 1);
-        options = jQuery.parseJSON(options ? options.replace(/\&#039;/g, '"') : "{}");
-        message = message.substring(0, startOption > 0 ? startOption : message.length);
-        AIZ.plugins.notify(level, message, options);
-        @endforeach
-    </script>
+  @include('frontend.inc.footer')
 
 </body>
+<!-- CoresJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!--  Google Maps Plugin    -->
+{{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
+
+{{-- <script src="{{ asset('assets/back/js/auth.js') }}"></script> --}}
+{{-- loadMore script --}}
+<script>
+  var ENDPOINT = "{{ url('/') }}";
+  var page = 1;
+
+  load_more(page);
+
+  // height view
+  var viewH = $(document).height();
+
+  $(window).scroll(function() {
+    // height full web
+    var webH = $(window).height();
+
+    if($(document).scrollTop() >= (webH - viewH - 3)) {
+    page++;
+    load_more(page);
+    }
+    // console.log($(document).scrollTop());
+    // console.log(webH - viewH );
+    // console.log(viewH);
+  });
+
+
+  function load_more(page){
+    $.ajax({
+      url: ENDPOINT + "/?page=" + page,
+      type: "get",
+      datatype: "html",
+      beforeSend: function()
+      {
+        $('.auto-load').show();
+      }
+    })
+
+    .done(function(data)
+    {          
+      if(data.length == 0){
+      $('.auto-load').html("No more records!");
+      return;
+      }
+      $('.auto-load').hide();
+      $('#list_feature').append(data);
+    })
+
+    .fail(function(jqXHR, ajaxOptions, thrownError)
+    {
+      alert('No response from server');
+    });
+  }
+</script>
 
 </html>

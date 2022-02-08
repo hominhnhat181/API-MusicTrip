@@ -18,35 +18,35 @@
                 {{-- features --}}
                 <li class="aiz-side-nav-item">
                     <a href="{{route('admin.feature.index')}}" class="aiz-side-nav-link">
-                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <i class="las la-feather aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('FEATURES') }}</span>
                     </a>
                 </li>
                 {{-- Albums --}}
                 <li class="aiz-side-nav-item">
                     <a href="{{route('admin.album.index')}}" class="aiz-side-nav-link">
-                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <i class="las la-compact-disc aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('ALBUMS') }}</span>
                     </a>
                 </li>
                 {{-- Artist --}}
                 <li class="aiz-side-nav-item">
                     <a href="{{route('admin.artist.index')}}" class="aiz-side-nav-link">
-                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <i class="las la-dragon aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('ARTISTS') }}</span>
                     </a>
                 </li>
                  {{-- Tag --}}
                  <li class="aiz-side-nav-item">
                     <a href="{{route('admin.tag.index')}}" class="aiz-side-nav-link">
-                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <i class="las la-tags aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('TAGS') }}</span>
                     </a>
                 </li>
                  {{-- Song --}}
                  <li class="aiz-side-nav-item">
                     <a href="{{route('admin.song.index')}}" class="aiz-side-nav-link">
-                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <i class="las la-music aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('TRACKS') }}</span>
                     </a>
                 </li>

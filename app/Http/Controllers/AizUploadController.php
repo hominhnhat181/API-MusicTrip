@@ -222,5 +222,4 @@ class AizUploadController
         $file = Upload::findOrFail($request['id']);
         return view('backend.uploaded_files.info',compact('file'));
     }
-
 }
