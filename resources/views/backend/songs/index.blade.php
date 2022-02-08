@@ -24,8 +24,8 @@
                     <div class="admin_search col-xl-3 col-md-5" id="alphay">
                         <select class="admin_search-chose aiz-selectpicker form-control" id="select_user" name="status">
                             <option selected value="">-- Status --</option>
-                            <option value="1" {{ request('status') == 2 ? 'selected' : '' }}>Active</option>
-                            <option value="2" {{ request('status') == 1 ? 'selected' : '' }}>Deactive</option>
+                            <option value="1" {{ request('status') == 1 ? 'selected' : '' }}>Active</option>
+                            <option value="2" {{ request('status') == 2 ? 'selected' : '' }}>Deactive</option>
                         </select>
                     </div>
                     <?php
@@ -69,9 +69,9 @@
                                         </td>
                                         <td class="center">
                                             @if ($song->status != 1)
-                                                <span class="badge bg-success">Admin</span>
+                                                <span class="badge bg-danger">Deactive</span>
                                             @else
-                                                <span class="badge bg-danger">Customer</span>
+                                                <span class="badge bg-success">Active</span>
                                             @endif
                                         </td>
                                         <td class="d-none d-md-table-cell center">

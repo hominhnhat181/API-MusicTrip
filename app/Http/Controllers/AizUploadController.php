@@ -113,32 +113,32 @@ class AizUploadController
                 $path = $request->file('aiz_file')->store('uploads/all', 'local');
                 $size = $request->file('aiz_file')->getSize();
 
-                if($type[$extension] == 'image'){
-                    try {
-                        $img = Image::make($request->file('aiz_file')->getRealPath())->encode();
-                        $height = $img->height();
-                        $width = $img->width();
-                        if($width > $height && $width > 1500){
-                            $img->resize(1500, null, function ($constraint) {
-                                $constraint->aspectRatio();
-                            });
-                        }elseif ($height > 1500) {
-                            $img->resize(null, 800, function ($constraint) {
-                                $constraint->aspectRatio();
-                            });
-                        }
-                        $img->save(base_path('public/').$path);
-                        clearstatcache();
-                        $size = $img->filesize();
+                // if($type[$extension] == 'image'){
+                //     try {
+                //         $img = Image::make($request->file('aiz_file')->getRealPath())->encode();
+                //         $height = $img->height();
+                //         $width = $img->width();
+                //         if($width > $height && $width > 1500){
+                //             $img->resize(1500, null, function ($constraint) {
+                //                 $constraint->aspectRatio();
+                //             });
+                //         }elseif ($height > 1500) {
+                //             $img->resize(null, 800, function ($constraint) {
+                //                 $constraint->aspectRatio();
+                //             });
+                //         }
+                //         $img->save(base_path('public/').$path);
+                //         clearstatcache();
+                //         $size = $img->filesize();
 
-                        if (env('FILESYSTEM_DRIVER') == 's3') {
-                            Storage::disk('s3')->put($path, file_get_contents(base_path('public/').$path));
-                            unlink(base_path('public/').$path);
-                        }
-                    } catch (\Exception $e) {
-                        //dd($e);
-                    }
-                }
+                //         if (env('FILESYSTEM_DRIVER') == 's3') {
+                //             Storage::disk('s3')->put($path, file_get_contents(base_path('public/').$path));
+                //             unlink(base_path('public/').$path);
+                //         }
+                //     } catch (\Exception $e) {
+                //         //dd($e);
+                //     }
+                // }
 
                 $upload->extension = $extension;
                 $upload->file_name = $path;

@@ -23,6 +23,7 @@
   {{-- <link rel="stylesheet" href="{{ asset('assets/back/css/auth_img.css') }}"> --}}
   {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/player.css') }}"> --}}
   <title>Home</title>
+  
 </head>
 
 <body class="dark-edition">

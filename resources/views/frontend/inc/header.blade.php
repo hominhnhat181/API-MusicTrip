@@ -42,7 +42,8 @@
                                 </p>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="javascript:void(0)">Mike John responded to your email</a>
+                                <a class="dropdown-item" href="javascript:void(0)">Mike John responded to your
+                                    email</a>
                                 <a class="dropdown-item" href="javascript:void(0)">You have 5 new tasks</a>
                                 <a class="dropdown-item" href="javascript:void(0)">You're now friend with Andrew</a>
                                 <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
@@ -50,41 +51,38 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            @if (Auth::guest())
-                            <a class="nav-link" href="{{ Route('login') }}">
-                                <i class="material-icons">person</i>
-                                <p class="d-lg-none d-md-block">
-                                    Account
-                                </p>
-                            </a>
+                            @guest
+                                <a class="nav-link" href="{{ Route('login') }}">
+                                    <i class="material-icons">person</i>
+                                    <p class="d-lg-none d-md-block">
+                                        Account
+                                    </p>
+                                </a>
+                            @elseif (Auth::user()->user_type == 1)
+                                <a class="nav-link" href="" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"><img
+                                        src="{{ asset(Auth::user()->image) }}"></a>
+                                <div class="dropdown-menu dropdown-menu-right"
+                                    style=" margin-right: 60px; margin-top: -13px ;"
+                                    aria-labelledby="navbarDropdownMenuLink2">
+                                    <a class="dropdown-item"
+                                        href="{{ Route('admin.profile', ['id' => Auth::user()->id]) }}">Account</a>
+                                    <a class="dropdown-item" href="{{ Route('admin.dashboard') }}">Control
+                                        Page</a>
+                                    <a class="dropdown-item" href="{{ ROute('logout') }}">Logout</a>
+                                </div>
                             @else
-                            @if (Auth::user()->is_admin == 1)
-                            <a class="nav-link" href="" id="navbarDropdownMenuLink2" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"><img
-                                    src="{{ asset('/front/images/'.Auth::user()->image)}}"></a>
-                            <div class="dropdown-menu dropdown-menu-right"
-                                style=" margin-right: 60px; margin-top: -13px ;"
-                                aria-labelledby="navbarDropdownMenuLink2">
-                                <a class="dropdown-item" href="{{ Route('admin.profile',['id'=>Auth::user()->id]) }}">Account</a>
-                                <a class="dropdown-item" href="{{ Route('admin.dashboard') }}">Control Page</a>
-                                <a class="dropdown-item" href="{{ ROute('logout') }}">Logout</a>
-                            </div>
-                            @else
-                            <a class="nav-link" href="" id="navbarDropdownMenuLink2" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                @if (!empty(Auth::user()->google_id) || !empty(Auth::user()->facebook_id))
-                                <img src="{{ asset(Auth::user()->image)}}">
-                                @else
-                                <img src="{{ asset('/front/images/'.Auth::user()->image)}}">
-                                @endif
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right"
-                                style=" margin-right: 60px; margin-top: -13px ;"
-                                aria-labelledby="navbarDropdownMenuLink2">
-                                <a class="dropdown-item" href="{{ Route('profile',['id'=>Auth::user()->id]) }}">Account</a>
-                                <a class="dropdown-item" href="{{ Route('logout') }}">Logout</a>
-                            </div>
-                            @endif
+                                <a class="nav-link" href="" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <img src="{{ asset(Auth::user()->image) }}">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right"
+                                    style=" margin-right: 60px; margin-top: -13px ;"
+                                    aria-labelledby="navbarDropdownMenuLink2">
+                                    <a class="dropdown-item"
+                                        href="{{ Route('profile', ['id' => Auth::user()->id]) }}">Account</a>
+                                    <a class="dropdown-item" href="{{ Route('logout') }}">Logout</a>
+                                </div>
                             @endif
                         </li>
                     </ul>
