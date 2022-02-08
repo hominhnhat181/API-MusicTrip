@@ -25,15 +25,25 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Backend'
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::get('/userdata', 'Auth\LoginController@userdata')->name('');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-    // user
+
     Route::prefix('user')->name('user.')->group(function () {
         Route::resource('/', 'UserController', ['parameters' => ['' => 'id']]);
+        Route::get('status/{id}', 'FeatureController@changeStatus')->name('status');
         Route::post('/search', 'UserController@fillSearch')->name('fillSearch');
     });
-    // feature 
     Route::prefix('feature')->name('feature.')->group(function () {
         Route::resource('/', 'FeatureController', ['parameters' => ['' => 'id']]);
         Route::get('status/{id}', 'FeatureController@changeStatus')->name('status');
         Route::post('search', 'FeatureController@fillSearch')->name('fillSearch');
+    });
+    Route::prefix('album')->name('album.')->group(function () {
+        Route::resource('/', 'AlbumController', ['parameters' => ['' => 'id']]);
+        Route::get('status/{id}', 'AlbumController@changeStatus')->name('status');
+        Route::post('search', 'AlbumController@fillSearch')->name('fillSearch');
+    });
+    Route::prefix('artist')->name('artist.')->group(function () {
+        Route::resource('/', 'ArtistController', ['parameters' => ['' => 'id']]);
+        Route::get('status/{id}', 'ArtistController@changeStatus')->name('status');
+        Route::post('search', 'ArtistController@fillSearch')->name('fillSearch');
     });
 });

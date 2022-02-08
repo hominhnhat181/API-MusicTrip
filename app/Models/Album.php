@@ -10,7 +10,7 @@ class Album extends Model
     use HasFactory;
     protected $table ='albums';
     protected $fillable =[
-        'name','image','title','desc','feature_id','status'
+        'name','image','desc','feature_id','status'
     ] ;
 
     public function tags()

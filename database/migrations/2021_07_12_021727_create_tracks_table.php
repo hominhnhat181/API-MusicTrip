@@ -17,7 +17,6 @@ class CreateTracksTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image')->nullable();
-            $table->string('song');
             $table->unsignedBigInteger('album_id');
             $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
             $table->unsignedBigInteger('artist_id');

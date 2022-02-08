@@ -22,6 +22,20 @@
                         <span class="aiz-side-nav-text">{{ translate('FEATURES') }}</span>
                     </a>
                 </li>
+                {{-- Albums --}}
+                <li class="aiz-side-nav-item">
+                    <a href="{{route('admin.album.index')}}" class="aiz-side-nav-link">
+                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ translate('ALBUMS') }}</span>
+                    </a>
+                </li>
+                {{-- Artist --}}
+                <li class="aiz-side-nav-item">
+                    <a href="{{route('admin.artist.index')}}" class="aiz-side-nav-link">
+                        <i class="lab la-gripfire aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ translate('ARTISTS') }}</span>
+                    </a>
+                </li>
                 <!-- Customers -->
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">

@@ -105,6 +105,11 @@ a {
     font-weight: 700;
 }
 
+.text-area{
+    line-height: 1.5;
+    min-height: 80px;
+}
+
 .bootstrap-select>.dropdown-toggle{
     padding: 0 16px ;
 }

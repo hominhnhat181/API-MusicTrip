@@ -17,7 +17,6 @@ class CreateAlbumTagTable extends Migration
             $table->id();
             $table->unsignedBigInteger('album_id');
             $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
-
             $table->unsignedBigInteger('tag_id');
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });

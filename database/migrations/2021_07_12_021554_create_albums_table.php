@@ -17,7 +17,6 @@ class CreateAlbumsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image')->nullable();
-            $table->string('title')->nullable();
             $table->string('desc')->nullable();
             $table->unsignedBigInteger('feature_id');
             $table->foreign('feature_id')->references('id')->on('features')->onDelete('cascade');
