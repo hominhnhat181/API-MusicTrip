@@ -45,10 +45,9 @@ class SongController extends Controller
         $attributes['song'] = $this->songService->requestImg($request->song);
 
         $this->songService->store($attributes);
-        // flash("Add Song Success")->success();
-        // return redirect()->route('admin.song.index');
-        dd($attributes);
-
+        flash("Add Song Success")->success();
+        return redirect()->route('admin.song.index');
+        // dd($attributes);
     }
 
     public function changeStatus($id)

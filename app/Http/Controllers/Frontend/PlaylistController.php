@@ -12,8 +12,8 @@ class PlaylistController extends Controller
 {
     public function goPlaylist($id)
     {
-        $data = Song::where('album_id', $id)->where('status', 1)->orderBy('id', 'desc')->get();
-        return view('frontend.playlist.playlist', compact('data'));
+        $songs = Song::where('album_id', $id)->where('status', 1)->orderBy('id', 'desc')->get();
+        return view('frontend.playlist.playlist', compact('songs'));
     }
 
     public function getAudio(Song $song)

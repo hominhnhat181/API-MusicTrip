@@ -1470,9 +1470,9 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
         deleteConfirm: function () {
             $(".confirm-delete").click(function (e) {
                 e.preventDefault();
-                var url = $(this).data("href");
+                var url = $(this).attr("data-href");
                 $("#delete-modal").modal("show");
-                $("#delete-link").parents("form").attr("action", url);
+                $("#delete-link").attr("action", url);
             });
 
             $(".confirm-cancel").click(function (e) {

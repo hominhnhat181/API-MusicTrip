@@ -1,4 +1,3 @@
-{{-- 
 </div>
 
 @php
@@ -8,12 +7,12 @@
         <li class="cover">
             <div class="player_info" style="display: flex">
                 <div class="player_img">
-                    <img
+                    <img id="tracks_main_img"
                         src="http://i1285.photobucket.com/albums/a583/TheGreatOzz1/Hosted-Images/Noisy-Freeks-Image_zps4kilrxml.png" />
                 </div>
                 <div class="player_track">
-                    <h1>The Noisy Freaks</h1>
-                    <h2>I Need You Back</h2>
+                    <h1 id="track-player">The Noisy Freaks</h1>
+                    <h2 id="artist-player">I Need You Back</h2>
                 </div>
             </div>
         </li>
@@ -40,10 +39,10 @@
                         <rect x="14" y="4.6" width="3.9" height="15.7" />
                     </g>
                 </svg>
-                <span class="expend"><svg class="step-foreward" viewBox="0 0 25 25" xml:space="preserve">
+                <span class="expend">
+                    <svg class="step-foreward" viewBox="0 0 25 25" xml:space="preserve">
                         <g>
-                            <polygon
-                                points="20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7" />
+                            <polygon points="20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7" />
                         </g>
                     </svg>
                 </span>
@@ -57,133 +56,98 @@
                         <div id="elapsed"></div>
                     </div>
                     <div class="time">
-                        <p>0:00</p>
+                        <p id="allTime">0:00</p>
                     </div>
                 </div>
             </div>
         </li>
     </ul>
 </div>
- --}}
 
-@if(isset($data))
-@foreach ($data as $green)
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
 <script type="text/javascript">
-    // var audio = document.getElementById("{{$green->id}}");
-    // var playButton = document.getElementById("play");
-    // var pauseButton = document.getElementById("pause");
-    // var playhead = document.getElementById("elapsed");
-    // var timeline = document.getElementById("slider");
-    // var timer = document.getElementById("timer");
-    // var duration;
+    var audios = document.getElementsByTagName('audio');
+    // restart another song when active one song
+    document.addEventListener('play', function(e) {
+        for (var i = 0; i < audios.length; i++) {
+            if (audios[i] != e.target) {
+                audios[i].currentTime = 0;
+                audios[i].pause();
+            } else {
+                var classGrandpa = $(e.target).parent().parent().parent().attr('class');
+                var poster = $('.' + classGrandpa + ' .main_track_img').attr('src');
+                var trackName = $('.' + classGrandpa + ' .info .trackSong').attr('track');
+                var artistName = $('.' + classGrandpa + ' .info .trackArtist').attr('artist');
+                changePlayerInfomation(poster, trackName, artistName);
+            }
+        }
+    }, true);
 
-    
-    // pauseButton.style.visibility = "hidden";
-
-
-    // var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
-    // audio.addEventListener("timeupdate", timeUpdate, false);
-
-
-    // function timeUpdate() {
-    //     var audio = document.getElementById("song-{{$green->id}}");
-    //     var playPercent = timelineWidth * (audio.currentTime / duration);
-    //     playhead.style.width = playPercent + "px";
-    //     var secondsIn = Math.floor(((audio.currentTime / duration) / 3.5) * 100);
-    //     if (secondsIn <= 9) {
-    //         timer.innerHTML = "0:0" + secondsIn;
-    //     } else {
-    //         timer.innerHTML = "0:" + secondsIn;
-    //     }
-    // }
-
-
-    // function play{{$green->id}}(){
-    //     var audio = document.getElementById("song{{$green->id}}");
-    //     var btn = document.getElementById("control{{$green->id}}").value;
-    //     if( btn == "off"){
-    //         audio.play();
-    //         document.getElementById("control{{$green->id}}").value="on";
-    //         playButton.style.visibility = "hidden";
-    //         pause.style.visibility = "visible";
-    //     }else{
-    //         audio.pause();
-    //         document.getElementById("control{{$green->id}}").value="off";
-    //         playButton.style.visibility = "visible";
-    //         pause.style.visibility = "hidden";
-    //     }
-    // }
-
-  
-    // playButton.onclick = function() {
-    //     var audio = document.getElementById("song{{$green->id}}");
-    //     audio.play();
-    //     playButton.style.visibility = "hidden";
-    //     pause.style.visibility = "visible";
-    // }
-
-
-    // pauseButton.onclick = function() {
-    //     var audio = document.getElementById("{{$green->id}}");
-    //     audio.pause();
-    //     playButton.style.visibility = "visible";
-    //     pause.style.visibility = "hidden";
-    // }
-
-
-    // audio.addEventListener("canplaythrough", function() {
-    //     var audio = document.getElementById("{{$green->id}}");
-    //     duration = audio.duration;
-    // }, false);
-
-
-</script>
-@endforeach
-@endif
-
-
-
-
-
-
-{{-- </div>
-<div id="aplayer"></div>
-<style>
-    #aplayer{
-        z-index: 999;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        bottom: 0;
-        background: rgb(13, 17, 36);
+    function changePlayerInfomation(poster, trackName, artistName) {
+        var mainImage = document.getElementById('tracks_main_img');
+        var playerTrackName = document.getElementById('track-player');
+        var playerTrackArtist = document.getElementById('artist-player');
+        playerTrackName.innerHTML = trackName;
+        playerTrackArtist.innerHTML = artistName;
+        mainImage.src = poster;
     }
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css  ">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
-<script>
-const ap = new APlayer({
-    container: document.getElementById('aplayer'),
-    listFolder: true,
-    audio: [
-    {
-        name: 'whatername',
-        artist: 'Greenday',
-        url: '../front/audio/whatername.mp3',
-        cover: '../front/images/greenday-21.jpg'
-    },
-    {
-        name: 'whatername',
-        artist: 'Greenday',
-        url: '../front/audio/whatername.mp3',
-        cover: '../front/images/greenday-21.jpg'
-    },
-    {
-        name: 'whatername',
-        artist: 'Greenday',
-        url: '../front/audio/whatername.mp3',
-        cover: '../front/images/greenday-21.jpg'
-    },
-]
-});
-</script> --}}
+
+    var playButton = document.getElementById("play");
+    var pauseButton = document.getElementById("pause");
+    var playhead = document.getElementById("elapsed");
+    var timeline = document.getElementById("slider");
+    var timer = document.getElementById("timer");
+    var duration;
+    pauseButton.style.visibility = "hidden";
+
+    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+
+    $(document).on('click', '.start_music', function() {
+        // var audioId = 
+        var music = document.getElementById($(this).attr('audio'));
+
+        music.play();
+        music.addEventListener("timeupdate", timeUpdate, false);
+        playButton.style.visibility = "hidden";
+        pause.style.visibility = "visible";
+
+        function timeUpdate() {
+            var minus = 0;
+            var playPercent = timelineWidth * (music.currentTime / duration);
+            playhead.style.width = playPercent + "px";
+
+            // currentTime
+            var secondsIn = Math.floor(music.currentTime);
+
+            var seconds = secondsIn % 60;
+            var foo = secondsIn - seconds;
+            var minutes = foo / 60;
+            if (seconds < 10) {
+                seconds = "0" + seconds.toString();
+            }
+            timer.innerHTML = minutes + ":" + seconds;
+
+            // duration
+            var minutes = Math.floor(duration / 60);
+            var seconds = Math.floor(duration - minutes * 60);
+            allTime.innerHTML = minutes + ':' + seconds;
+        }
+
+        playButton.onclick = function() {
+            music.play();
+            playButton.style.visibility = "hidden";
+            pause.style.visibility = "visible";
+        }
+
+        pauseButton.onclick = function() {
+            music.pause();
+            playButton.style.visibility = "visible";
+            pause.style.visibility = "hidden";
+        }
+
+        music.addEventListener("canplaythrough", function() {
+            duration = music.duration;
+        }, false);
+    });
+</script>
