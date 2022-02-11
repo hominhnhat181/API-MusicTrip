@@ -20,7 +20,8 @@
             <div class="controls">
                 <span class="expend"><svg class="step-backward" viewBox="0 0 25 25" xml:space="preserve">
                         <g>
-                            <polygon points="4.9,4.3 9,4.3 9,11.6 21.4,4.3 21.4,20.7 9,13.4 9,20.7 4.9,20.7" />
+                            <polygon id="pre-song"
+                                points="4.9,4.3 9,4.3 9,11.6 21.4,4.3 21.4,20.7 9,13.4 9,20.7 4.9,20.7" />
                         </g>
                     </svg></span>
                 <svg id="play" viewBox="0 0 25 25" xml:space="preserve">
@@ -42,7 +43,8 @@
                 <span class="expend">
                     <svg class="step-foreward" viewBox="0 0 25 25" xml:space="preserve">
                         <g>
-                            <polygon points="20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7" />
+                            <polygon id="next-song"
+                                points="20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7" />
                         </g>
                     </svg>
                 </span>
@@ -68,6 +70,7 @@
 
 <script type="text/javascript">
     var audios = document.getElementsByTagName('audio');
+
     // restart another song when active one song
     document.addEventListener('play', function(e) {
         for (var i = 0; i < audios.length; i++) {
@@ -98,16 +101,20 @@
     var playhead = document.getElementById("elapsed");
     var timeline = document.getElementById("slider");
     var timer = document.getElementById("timer");
-    var duration;
+    var preSong = document.getElementById("pre-song");
+    var nextSong = document.getElementById("next-song");
+
     pauseButton.style.visibility = "hidden";
 
     var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
 
     $(document).on('click', '.start_music', function() {
-        // var audioId = 
         var music = document.getElementById($(this).attr('audio'));
-
+        var duration = music.duration;
+        var preId = $(this).attr('pre');
+        var nextId = $(this).attr('next');
         music.play();
+
         music.addEventListener("timeupdate", timeUpdate, false);
         playButton.style.visibility = "hidden";
         pause.style.visibility = "visible";
@@ -146,8 +153,59 @@
             pause.style.visibility = "hidden";
         }
 
-        music.addEventListener("canplaythrough", function() {
+        preSong.onclick = function() {
+            if (preId) {
+                document.addEventListener('play', function(e) {
+                    for (var i = 0; i < audios.length; i++) {
+                        if (audios[i] != e.target) {
+                            audios[i].currentTime = 0;
+                            audios[i].pause();
+                        } else {
+                            var classGrandpa = $(e.target).parent().parent().parent().attr('class');
+                            var poster = $('.' + classGrandpa + ' .main_track_img').attr('src');
+                            var trackName = $('.' + classGrandpa + ' .info .trackSong').attr(
+                                'track');
+                            var artistName = $('.' + classGrandpa + ' .info .trackArtist').attr(
+                                'artist');
+                            changePlayerInfomation(poster, trackName, artistName);
+                        }
+                    }
+                }, true);
+                preMusic = document.getElementById('music' + preId);
+                preId = $(preMusic).parent().attr('pre');
+                nextId = $(preMusic).parent().attr('next');
+                music = document.getElementById($(preMusic).parent().attr('audio'));
+                duration = music.duration;
+                music.play();
+                music.addEventListener("timeupdate", timeUpdate, false);
+            }
+        }
+
+        nextSong.onclick = function() {
+           if(nextId){
+            document.addEventListener('play', function(e) {
+                for (var i = 0; i < audios.length; i++) {
+                    if (audios[i] != e.target) {
+                        audios[i].currentTime = 0;
+                        audios[i].pause();
+                    } else {
+                        var classGrandpa = $(e.target).parent().parent().parent().attr('class');
+                        var poster = $('.' + classGrandpa + ' .main_track_img').attr('src');
+                        var trackName = $('.' + classGrandpa + ' .info .trackSong').attr('track');
+                        var artistName = $('.' + classGrandpa + ' .info .trackArtist').attr(
+                            'artist');
+                        changePlayerInfomation(poster, trackName, artistName);
+                    }
+                }
+            }, true);
+            nextMusic = document.getElementById('music' + nextId);
+            preId = $(nextMusic).parent().attr('pre');
+            nextId = $(nextMusic).parent().attr('next');
+            music = document.getElementById($(nextMusic).parent().attr('audio'));
             duration = music.duration;
-        }, false);
+            music.play();
+            music.addEventListener("timeupdate", timeUpdate, false);
+           }
+        }
     });
 </script>

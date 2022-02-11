@@ -17,35 +17,35 @@
                 </li>
                 {{-- features --}}
                 <li class="aiz-side-nav-item">
-                    <a href="{{route('admin.feature.index')}}" class="aiz-side-nav-link">
+                    <a href="{{route('admin.feature.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['admin.feature.create','admin.feature.edit'])}}">
                         <i class="las la-feather aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('FEATURES') }}</span>
                     </a>
                 </li>
                 {{-- Albums --}}
                 <li class="aiz-side-nav-item">
-                    <a href="{{route('admin.album.index')}}" class="aiz-side-nav-link">
+                    <a href="{{route('admin.album.index')}}" class="aiz-side-nav-link  {{ areActiveRoutes(['admin.album.create', 'admin.album.edit'])}}">
                         <i class="las la-compact-disc aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('ALBUMS') }}</span>
                     </a>
                 </li>
                 {{-- Artist --}}
                 <li class="aiz-side-nav-item">
-                    <a href="{{route('admin.artist.index')}}" class="aiz-side-nav-link">
+                    <a href="{{route('admin.artist.index')}}" class="aiz-side-nav-link  {{ areActiveRoutes(['admin.artist.create', 'admin.artist.edit'])}}">
                         <i class="las la-dragon aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('ARTISTS') }}</span>
                     </a>
                 </li>
                  {{-- Tag --}}
                  <li class="aiz-side-nav-item">
-                    <a href="{{route('admin.tag.index')}}" class="aiz-side-nav-link">
+                    <a href="{{route('admin.tag.index')}}" class="aiz-side-nav-link  {{ areActiveRoutes(['admin.tag.create', 'admin.tag.edit'])}}">
                         <i class="las la-tags aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('TAGS') }}</span>
                     </a>
                 </li>
                  {{-- Song --}}
                  <li class="aiz-side-nav-item">
-                    <a href="{{route('admin.song.index')}}" class="aiz-side-nav-link">
+                    <a href="{{route('admin.song.index')}}" class="aiz-side-nav-link  {{ areActiveRoutes(['admin.song.create', 'admin.song.edit'])}}">
                         <i class="las la-music aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('TRACKS') }}</span>
                     </a>
@@ -59,7 +59,7 @@
                     </a>
                     <ul class="aiz-side-nav-list level-2">
                         <li class="aiz-side-nav-item">
-                            <a href="{{ route('admin.user.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['admin.users.*'])}}">
+                            <a href="{{ route('admin.user.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['admin.users.create', 'admin.users.edit'])}}">
                                 <span class="aiz-side-nav-text">{{ translate('USER LIST') }}</span>
                             </a>
                         </li>
@@ -72,7 +72,7 @@
                     </a>
                 </li> --}}
                 <li class="aiz-side-nav-item">
-                    <a href="{{route('uploaded-files.index')}}" class="aiz-side-nav-link">
+                    <a href="{{route('uploaded-files.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['uploaded-files.create'])}}">
                         <i class="lab la-gripfire aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ translate('UPLOADS') }}</span>
                     </a>
