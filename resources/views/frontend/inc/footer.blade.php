@@ -18,10 +18,9 @@
         </li>
         <li class="info">
             <div class="controls">
-                <span class="expend"><svg class="step-backward" viewBox="0 0 25 25" xml:space="preserve">
+                <span class="expend"><svg class="step-backward" id="pre-song" viewBox="0 0 25 25" xml:space="preserve">
                         <g>
-                            <polygon id="pre-song"
-                                points="4.9,4.3 9,4.3 9,11.6 21.4,4.3 21.4,20.7 9,13.4 9,20.7 4.9,20.7" />
+                            <polygon  points="4.9,4.3 9,4.3 9,11.6 21.4,4.3 21.4,20.7 9,13.4 9,20.7 4.9,20.7" />
                         </g>
                     </svg></span>
                 <svg id="play" viewBox="0 0 25 25" xml:space="preserve">
@@ -41,10 +40,9 @@
                     </g>
                 </svg>
                 <span class="expend">
-                    <svg class="step-foreward" viewBox="0 0 25 25" xml:space="preserve">
+                    <svg id="next-song" class="step-foreward" viewBox="0 0 25 25" xml:space="preserve">
                         <g>
-                            <polygon id="next-song"
-                                points="20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7" />
+                            <polygon points="20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7" />
                         </g>
                     </svg>
                 </span>
