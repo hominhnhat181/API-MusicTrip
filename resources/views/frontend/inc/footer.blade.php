@@ -70,6 +70,15 @@
 
 <script type="text/javascript">
     var audios = document.getElementsByTagName('audio');
+    var playButton = document.getElementById("play");
+    var pauseButton = document.getElementById("pause");
+    var playhead = document.getElementById("elapsed");
+    var timeline = document.getElementById("slider");
+    var timer = document.getElementById("timer");
+    var preSong = document.getElementById("pre-song");
+    var nextSong = document.getElementById("next-song");
+    pauseButton.style.visibility = "hidden";
+    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
 
     // restart another song when active one song
     document.addEventListener('play', function(e) {
@@ -87,6 +96,7 @@
         }
     }, true);
 
+
     function changePlayerInfomation(poster, trackName, artistName) {
         var mainImage = document.getElementById('tracks_main_img');
         var playerTrackName = document.getElementById('track-player');
@@ -96,17 +106,6 @@
         mainImage.src = poster;
     }
 
-    var playButton = document.getElementById("play");
-    var pauseButton = document.getElementById("pause");
-    var playhead = document.getElementById("elapsed");
-    var timeline = document.getElementById("slider");
-    var timer = document.getElementById("timer");
-    var preSong = document.getElementById("pre-song");
-    var nextSong = document.getElementById("next-song");
-
-    pauseButton.style.visibility = "hidden";
-
-    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
 
     $(document).on('click', '.start_music', function() {
         var music = document.getElementById($(this).attr('audio'));
@@ -178,34 +177,39 @@
                 duration = music.duration;
                 music.play();
                 music.addEventListener("timeupdate", timeUpdate, false);
+            } else {
+                music.currentTime = 0;
             }
         }
 
         nextSong.onclick = function() {
-           if(nextId){
-            document.addEventListener('play', function(e) {
-                for (var i = 0; i < audios.length; i++) {
-                    if (audios[i] != e.target) {
-                        audios[i].currentTime = 0;
-                        audios[i].pause();
-                    } else {
-                        var classGrandpa = $(e.target).parent().parent().parent().attr('class');
-                        var poster = $('.' + classGrandpa + ' .main_track_img').attr('src');
-                        var trackName = $('.' + classGrandpa + ' .info .trackSong').attr('track');
-                        var artistName = $('.' + classGrandpa + ' .info .trackArtist').attr(
-                            'artist');
-                        changePlayerInfomation(poster, trackName, artistName);
+            if (nextId) {
+                document.addEventListener('play', function(e) {
+                    for (var i = 0; i < audios.length; i++) {
+                        if (audios[i] != e.target) {
+                            audios[i].currentTime = 0;
+                            audios[i].pause();
+                        } else {
+                            var classGrandpa = $(e.target).parent().parent().parent().attr('class');
+                            var poster = $('.' + classGrandpa + ' .main_track_img').attr('src');
+                            var trackName = $('.' + classGrandpa + ' .info .trackSong').attr(
+                                'track');
+                            var artistName = $('.' + classGrandpa + ' .info .trackArtist').attr(
+                                'artist');
+                            changePlayerInfomation(poster, trackName, artistName);
+                        }
                     }
-                }
-            }, true);
-            nextMusic = document.getElementById('music' + nextId);
-            preId = $(nextMusic).parent().attr('pre');
-            nextId = $(nextMusic).parent().attr('next');
-            music = document.getElementById($(nextMusic).parent().attr('audio'));
-            duration = music.duration;
-            music.play();
-            music.addEventListener("timeupdate", timeUpdate, false);
-           }
+                }, true);
+                nextMusic = document.getElementById('music' + nextId);
+                preId = $(nextMusic).parent().attr('pre');
+                nextId = $(nextMusic).parent().attr('next');
+                music = document.getElementById($(nextMusic).parent().attr('audio'));
+                duration = music.duration;
+                music.play();
+                music.addEventListener("timeupdate", timeUpdate, false);
+            }else{
+                music.currentTime = 0;
+            }
         }
     });
 </script>
