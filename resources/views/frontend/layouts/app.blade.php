@@ -1,61 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="app-url" content="{{ env('APP_URL') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- plugin --}}
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    {{-- player --}}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Fonts and icons -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/7061c063c6.js" crossorigin="anonymous"></script>
+    {{-- plugin --}}
+    <link rel="stylesheet" href="{{ static_asset('assets/backend/css/aiz-core.css?v=' . time()) }}">
+    <link rel="stylesheet" href="{{ static_asset('assets/backend/css/vendors.css?v=' . time()) }}">
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/player.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('assets/frontend/js/handleAudio.js') }}"> --}}
-    <link href="{{ asset('assets/frontend/css/material-dashboard.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/material-dashboard.css') }}"  />
+
+    <script>
+        var AIZ = AIZ || {};
+    </script>
+
+    <title>{{ config('app.name', 'Music Trip') }}</title>
 
     @yield('css')
-
-    <title>Home</title>
 
 </head>
 
 <body class="dark-edition">
-    {{-- <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=495127995056192&autoLogAppEvents=1"
-    nonce="mgnraTKs"></script> --}}
 
     @include('frontend.inc.header')
     @include('frontend.inc.sidebar')
 
-    @yield('content')
+        @yield('content')
 
     @include('frontend.inc.footer')
 
     <!-- CoresJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('assets/frontend/js/handleAudio.js') }}"></script>
-
-    <!--  Google Maps Plugin    -->
-    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
-
-    {{-- <script src="{{ asset('assets/back/js/auth.js') }}"></script> --}}
-    {{-- loadMore script --}}
     <script>
         var ENDPOINT = "{{ url('/') }}";
         var page = 1;
@@ -110,9 +93,7 @@
             //bar or div or whatever.  I stuck in the console.log for you.  Just remove when
             //you know the position.
             $(window).scroll(function() {
-
                 console.log($(window).scrollTop());
-
                 if ($(window).scrollTop() > 1) {
                     $('#navigation-example').addClass('navbar-fixed-top');
                     $('#navigation-example').removeClass('navbar-custom');
@@ -126,6 +107,8 @@
             });
         });
     </script>
+    <script src="{{ static_asset('assets/backend/js/vendors.js') }}"></script>
+    <script src="{{ static_asset('assets/backend/js/aiz-core.js') }}"></script>
     @yield('script')
 </body>
 

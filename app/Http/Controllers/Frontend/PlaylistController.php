@@ -14,7 +14,7 @@ class PlaylistController extends Controller
     {
         $songs = Song::where('album_id', $id)->where('status', 1)->orderBy('id', 'desc')->get();
         $totalSongs = count($songs);
-        $songIds = Song::all()->modelKeys();
+        $songIds = Song::where('album_id', $id)->get()->modelKeys();
         $album = Album::find($id);
         return view('frontend.playlist.playlist', compact('songs', 'songIds','album', 'totalSongs'));
     }
