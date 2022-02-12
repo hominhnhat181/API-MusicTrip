@@ -44,7 +44,7 @@ $(document).on('click', '.start_music', function() {
     var duration = music.duration;
     var preId = $(this).attr('pre');
     var nextId = $(this).attr('next');
-    
+
     $(document).ready(function() {
         $(playButton).trigger('click');
     });
@@ -91,7 +91,6 @@ $(document).on('click', '.start_music', function() {
     }
 
     function timeUpdate() {
-        duration = 4;
         var playPercent = timelineWidth * (music.currentTime / duration);
         playhead.style.width = playPercent + "px";
         // currentTime
