@@ -18,9 +18,10 @@
         </li>
         <li class="info">
             <div class="controls">
-                <span class="expend"><svg class="step-backward" id="pre-song" viewBox="0 0 25 25" xml:space="preserve">
+                <span class="expend"><svg class="step-backward" id="pre-song" viewBox="0 0 25 25"
+                        xml:space="preserve">
                         <g>
-                            <polygon  points="4.9,4.3 9,4.3 9,11.6 21.4,4.3 21.4,20.7 9,13.4 9,20.7 4.9,20.7" />
+                            <polygon points="4.9,4.3 9,4.3 9,11.6 21.4,4.3 21.4,20.7 9,13.4 9,20.7 4.9,20.7" />
                         </g>
                     </svg></span>
                 <svg id="play" viewBox="0 0 25 25" xml:space="preserve">
@@ -42,7 +43,8 @@
                 <span class="expend">
                     <svg id="next-song" class="step-foreward" viewBox="0 0 25 25" xml:space="preserve">
                         <g>
-                            <polygon points="20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7" />
+                            <polygon
+                                points="20.7,4.3 16.6,4.3 16.6,11.6 4.3,4.3 4.3,20.7 16.7,13.4 16.6,20.7 20.7,20.7" />
                         </g>
                     </svg>
                 </span>
@@ -94,7 +96,6 @@
         }
     }, true);
 
-
     function changePlayerInfomation(poster, trackName, artistName) {
         var mainImage = document.getElementById('tracks_main_img');
         var playerTrackName = document.getElementById('track-player');
@@ -104,39 +105,17 @@
         mainImage.src = poster;
     }
 
-
     $(document).on('click', '.start_music', function() {
         var music = document.getElementById($(this).attr('audio'));
         var duration = music.duration;
         var preId = $(this).attr('pre');
         var nextId = $(this).attr('next');
-        music.play();
 
+        music.play();
         music.addEventListener("timeupdate", timeUpdate, false);
         playButton.style.visibility = "hidden";
         pause.style.visibility = "visible";
 
-        function timeUpdate() {
-            var minus = 0;
-            var playPercent = timelineWidth * (music.currentTime / duration);
-            playhead.style.width = playPercent + "px";
-
-            // currentTime
-            var secondsIn = Math.floor(music.currentTime);
-
-            var seconds = secondsIn % 60;
-            var foo = secondsIn - seconds;
-            var minutes = foo / 60;
-            if (seconds < 10) {
-                seconds = "0" + seconds.toString();
-            }
-            timer.innerHTML = minutes + ":" + seconds;
-
-            // duration
-            var minutes = Math.floor(duration / 60);
-            var seconds = Math.floor(duration - minutes * 60);
-            allTime.innerHTML = minutes + ':' + seconds;
-        }
 
         playButton.onclick = function() {
             music.play();
@@ -150,7 +129,8 @@
             pause.style.visibility = "hidden";
         }
 
-        preSong.onclick = function() {
+        // nên chuyển về click -> function
+        preSong.onclick = function preSong() {
             if (preId) {
                 document.addEventListener('play', function(e) {
                     for (var i = 0; i < audios.length; i++) {
@@ -180,7 +160,7 @@
             }
         }
 
-        nextSong.onclick = function() {
+        nextSong.onclick = function nextSong() {
             if (nextId) {
                 document.addEventListener('play', function(e) {
                     for (var i = 0; i < audios.length; i++) {
@@ -205,9 +185,58 @@
                 duration = music.duration;
                 music.play();
                 music.addEventListener("timeupdate", timeUpdate, false);
-            }else{
+            } else {
                 music.currentTime = 0;
             }
+        }
+
+        function timeUpdate() {
+            var minus = 0;
+            var playPercent = timelineWidth * (music.currentTime / duration);
+            playhead.style.width = playPercent + "px";
+
+            // currentTime
+            var secondsIn = Math.floor(music.currentTime);
+
+            var seconds = secondsIn % 60;
+            var foo = secondsIn - seconds;
+            var minutes = foo / 60;
+            if (seconds < 10) {
+                seconds = "0" + seconds.toString();
+            }
+            timer.innerHTML = minutes + ":" + seconds;
+
+            // duration
+            var minutes = Math.floor(duration / 60);
+            var seconds = Math.floor(duration - minutes * 60);
+            allTime.innerHTML = minutes + ':' + seconds;
+
+            if (secondsIn == duration) {
+                $(document).ready(function() {
+                    $(nextSong).trigger('click');
+                });
+            }
+            console.log(secondsIn, Math.floor(duration));
+        }
+
+        function setVolume(percentage) {
+            music.volume = percentage;
+
+            var percentageOfVolume = music.volume / 1;
+            var percentageOfVolumeSlider = document.getElementById('volumeMeter').offsetWidth *
+                percentageOfVolume;
+
+            document.getElementById('volumeStatus').style.width = Math.round(percentageOfVolumeSlider) + "px";
+        }
+
+        //Set's new volume id based off of the click on the volume bar.
+        function setNewVolume(obj, e) {
+            var volumeSliderWidth = obj.offsetWidth;
+            var evtobj = window.event ? event : e;
+            clickLocation = evtobj.layerX - obj.offsetLeft;
+
+            var percentage = (clickLocation / volumeSliderWidth);
+            setVolume(percentage);
         }
     });
 </script>

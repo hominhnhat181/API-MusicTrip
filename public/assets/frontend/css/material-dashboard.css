@@ -14653,7 +14653,8 @@ fieldset[disabled] .form-group .form-control {
 .navbar.navbar-absolute {
     position: absolute;
     width: 100%;
-    padding-top: 10px;
+    padding: 7px 0;
+
     z-index: 1029;
 }
 
@@ -14811,8 +14812,18 @@ fieldset[disabled] .form-group .form-control {
 }
 
 .navbar.navbar-transparent {
-    background-color: transparent !important;
     box-shadow: none;
+    position: fixed;
+    margin-left: 260px;
+    width: inherit;
+}
+
+.navbar.navbar-custom { 
+    background-color: transparent !important;
+}
+
+.navbar-fixed-top{
+    background-color: #181818 !important;
 }
 
 .navbar .notification {
@@ -16482,7 +16493,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .main-panel > .navbar {
-    margin-bottom: 70px;
+    margin-bottom: 0;
 }
 
 .main-panel .header {
@@ -20623,7 +20634,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .dark-edition {
-    background-color: #1a2035;
+    background: #121212;
 }
 
 .dark-edition .btn,
@@ -21566,7 +21577,7 @@ Copyright (c) 2015 Daniel Eden
 
 .dark-edition .sidebar .sidebar-background:after,
 .dark-edition .sidebar {
-    background: #1f283e;
+    background: black;
     opacity: 0.94;
 }
 
@@ -21860,6 +21871,7 @@ Copyright (c) 2015 Daniel Eden
 .dark-edition .table > tfoot > tr > td {
     color: #8b92a9;
     border-color: rgba(180, 180, 180, 0.1);
+    border:unset !important;
 }
 
 .dark-edition .table-hover tbody tr:hover {

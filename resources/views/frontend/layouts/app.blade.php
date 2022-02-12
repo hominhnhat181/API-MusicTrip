@@ -17,13 +17,18 @@
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/7061c063c6.js" crossorigin="anonymous"></script>
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/player.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/frontend/js/handleAudio.js') }}"> --}}
     <link href="{{ asset('assets/frontend/css/material-dashboard.css') }}" rel="stylesheet" />
+
+    @yield('css')
 
     <title>Home</title>
 
@@ -44,6 +49,7 @@
 
     <!-- CoresJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('assets/frontend/js/handleAudio.js') }}"></script>
 
     <!--  Google Maps Plugin    -->
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
@@ -96,6 +102,29 @@
                     alert('No response from server');
                 });
         }
+
+        $(document).ready(function() {
+            //change the integers below to match the height of your upper div, which I called
+            //banner.  Just add a 1 to the last number.  console.log($(window).scrollTop())
+            //to figure out what the scroll position is when exactly you want to fix the nav
+            //bar or div or whatever.  I stuck in the console.log for you.  Just remove when
+            //you know the position.
+            $(window).scroll(function() {
+
+                console.log($(window).scrollTop());
+
+                if ($(window).scrollTop() > 1) {
+                    $('#navigation-example').addClass('navbar-fixed-top');
+                    $('#navigation-example').removeClass('navbar-custom');
+                    console.log('add class fixed to nav');
+                }
+                if ($(window).scrollTop() < 1) {
+                    $('#navigation-example').addClass('navbar-custom');
+                    $('#nav_bar').removeClass('navbar-fixed-top');
+                    console.log('remove class fixed to nav');
+                }
+            });
+        });
     </script>
     @yield('script')
 </body>
