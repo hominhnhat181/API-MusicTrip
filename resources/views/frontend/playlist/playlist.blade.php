@@ -1,7 +1,6 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-
     <div class="playlist">
         <div class="top_playlist">
             <div class="banner-container">
@@ -66,11 +65,9 @@
                                     <td class="title_track" style="display: flex">
                                         <img class="main_track_img" src="{{ asset($song->image) }}" alt="">
                                         <div class="info">
-                                            <a class="trackSong" track="{{ $song->name }}" href=""
-                                                id="track">{{ $song->name }}</a>
+                                            <a class="trackSong" track="{{ $song->name }}" href="" id="track">{{ $song->name }}</a>
                                             <br>
-                                            <a class="trackArtist" artist="{{ $song->artists->name }}" href=""
-                                                id="artist">{{ $song->artists->name }}</a>
+                                            <a class="trackArtist" artist="{{ $song->artists->name }}" href="" id="artist">{{ $song->artists->name }}</a>
                                         </div>
                                     </td>
                                     <td>{{ $song->albums->name }}</td>
@@ -84,25 +81,23 @@
                                             </audio>
                                         </button>
                                     </td>
-                                    {{-- <td>
-                                        <div class="VpYFchIiPg3tPhBGyynT"><img class="n5XwsUqagSoVk8oMiw1x" width="14" height="14"
-                                                alt=""
-                                                src="https://open.scdn.co/cdn/images/equaliser-animated-green.f93a2ef4.gif"><button
-                                                class="RfidWIoz8FON2WhFoItU" aria-label="Pause" tabindex="-1"
-                                                aria-expanded="false"><svg height="32" role="img" width="32" viewBox="0 0 24 24"
-                                                    class="UIBT7E6ZYMcSDl1KL62g">
+                                    <td>
+                                        <div class="VpYFchIiPg3tPhBGyynT">
+                                            <img class="n5XwsUqagSoVk8oMiw1x" width="14" height="14" alt="" src="https://open.scdn.co/cdn/images/equaliser-animated-green.f93a2ef4.gif">
+                                            <button class="RfidWIoz8FON2WhFoItU" aria-label="Pause" tabindex="-1" aria-expanded="false">
+                                                <svg height="32" role="img" width="32" viewBox="0 0 24 24" class="UIBT7E6ZYMcSDl1KL62g">
                                                     <rect x="5" y="3" width="4" height="18" fill="currentColor"></rect>
                                                     <rect x="15" y="3" width="4" height="18" fill="currentColor"></rect>
-                                                </svg></button></div>
-                                    </td> --}}
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-
-
         </div>
     </div>
 @endsection

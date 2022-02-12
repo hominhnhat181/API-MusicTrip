@@ -64,8 +64,6 @@
 		</div><!-- .aiz-content-wrapper -->
 	</div><!-- .aiz-main-wrapper -->
 
-    {{-- @include('frontend.auth.register_popup') --}}
-
     @yield('modal')
 
     {{-- caledar --}}
