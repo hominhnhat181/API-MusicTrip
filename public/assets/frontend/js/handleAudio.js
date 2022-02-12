@@ -6,8 +6,8 @@ var timeline = document.getElementById("slider");
 var timer = document.getElementById("timer");
 var preSong = document.getElementById("pre-song");
 var nextSong = document.getElementById("next-song");
-pauseButton.style.visibility = "hidden";
 var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+pauseButton.style.visibility = "hidden";
 
 // restart another song when active one song
 function resetAudio() {
@@ -39,13 +39,12 @@ function changePlayerInfomation(poster, trackName, artistName) {
 }
 
 
-$(document).on('click', '.start_music', function() {
+$(document).on('click', '.start_music', function() {    
     var music = document.getElementById($(this).attr('audio'));
     var duration = music.duration;
     var preId = $(this).attr('pre');
     var nextId = $(this).attr('next');
-    console.log(preId, nextId);
-
+    
     $(document).ready(function() {
         $(playButton).trigger('click');
     });
@@ -123,7 +122,6 @@ $(document).on('click', '.start_music', function() {
 
         document.getElementById('volumeStatus').style.width = Math.round(percentageOfVolumeSlider) + "px";
     }
-
     //Set's new volume id based off of the click on the volume bar.
     function setNewVolume(obj, e) {
         var volumeSliderWidth = obj.offsetWidth;
