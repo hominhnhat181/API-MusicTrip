@@ -7,7 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Fonts and icons -->
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     {{-- plugin --}}
     <link rel="stylesheet" href="{{ static_asset('assets/backend/css/aiz-core.css?v=' . time()) }}">
     <link rel="stylesheet" href="{{ static_asset('assets/backend/css/vendors.css?v=' . time()) }}">
@@ -15,16 +18,14 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/player.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/material-dashboard.css') }}"  />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/material-dashboard.css') }}" />
 
+    
     <script>
         var AIZ = AIZ || {};
     </script>
 
-    <title>{{ config('app.name', 'Music Trip') }}</title>
-
     @yield('css')
-
 </head>
 
 <body class="dark-edition">
@@ -32,7 +33,7 @@
     @include('frontend.inc.header')
     @include('frontend.inc.sidebar')
 
-        @yield('content')
+    @yield('content')
 
     @include('frontend.inc.footer')
 

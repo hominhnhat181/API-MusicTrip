@@ -36,7 +36,48 @@
         <div class="playlist_table">
             <div class="playlist-area">
                 <div class="top-playlist">
-                    <button class="btn btn-success"><i class="las la-pause"></i></button>
+                    <div class="action-tracks">
+                        <button class="btn btn-success"><i class="las la-pause"></i></button>
+                    </div>
+                    <div class="playlist-table">
+                        <div class="table-header">
+                            <div class="list-status list-id">
+                                <h5 id="id">#</h5>
+                                <h5 id="title">TITLE</h5>
+                            </div>
+                            <div class="list-status list-time">
+                                <i class="las la-clock"></i>
+                            </div>
+                        </div>
+                        <div class="table-body">
+                            @php $count = 0 @endphp
+                            @foreach ($songs as $song)
+                                @php
+                                    $count += 1;
+                                    $this_id = $song->id;
+                                    $flipped = array_flip($songIds);
+                                    $next_id = $songIds[$flipped[$this_id] - 1] ?? null;
+                                    $pre_id = $songIds[$flipped[$this_id] + 1] ?? null;
+                                @endphp
+                                <div class="table-body-content">
+                                    <div class="list-status list-id">
+                                        <h5>{{ $count }}</h5>
+                                    </div>
+                                    <div class="list-status list-name">
+                                        <div class="list-name-song">
+                                            <a class="trackSong" track="{{ $song->name }}" href="" id="track">{{ $song->name }}</a>
+                                        </div>
+                                        <div class="list-name-artist">
+                                            <a class="trackArtist" artist="{{ $song->artists->name }}" href="" id="artist">{{ $song->artists->name }}</a>
+                                        </div>
+                                    </div>
+                                    <div class="list-status list-time">
+                                        <h5>TIME</h5>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
                 <div class="playlist-area-table">
                     <table class="table table-dark">
@@ -52,7 +93,6 @@
                         <tbody class="playlist">
                             @php $count = 0 @endphp
                             @foreach ($songs as $song)
-                                {{-- cần tìm id đang play để tính pre và next --}}
                                 @php
                                     $count += 1;
                                     $this_id = $song->id;
@@ -65,9 +105,11 @@
                                     <td class="title_track" style="display: flex">
                                         <img class="main_track_img" src="{{ asset($song->image) }}" alt="">
                                         <div class="info">
-                                            <a class="trackSong" track="{{ $song->name }}" href="" id="track">{{ $song->name }}</a>
+                                            <a class="trackSong" track="{{ $song->name }}" href=""
+                                                id="track">{{ $song->name }}</a>
                                             <br>
-                                            <a class="trackArtist" artist="{{ $song->artists->name }}" href="" id="artist">{{ $song->artists->name }}</a>
+                                            <a class="trackArtist" artist="{{ $song->artists->name }}" href=""
+                                                id="artist">{{ $song->artists->name }}</a>
                                         </div>
                                     </td>
                                     <td>{{ $song->albums->name }}</td>
@@ -83,9 +125,12 @@
                                     </td>
                                     <td>
                                         <div class="VpYFchIiPg3tPhBGyynT">
-                                            <img class="n5XwsUqagSoVk8oMiw1x" width="14" height="14" alt="" src="https://open.scdn.co/cdn/images/equaliser-animated-green.f93a2ef4.gif">
-                                            <button class="RfidWIoz8FON2WhFoItU" aria-label="Pause" tabindex="-1" aria-expanded="false">
-                                                <svg height="32" role="img" width="32" viewBox="0 0 24 24" class="UIBT7E6ZYMcSDl1KL62g">
+                                            <img class="n5XwsUqagSoVk8oMiw1x" width="14" height="14" alt=""
+                                                src="https://open.scdn.co/cdn/images/equaliser-animated-green.f93a2ef4.gif">
+                                            <button class="RfidWIoz8FON2WhFoItU" aria-label="Pause" tabindex="-1"
+                                                aria-expanded="false">
+                                                <svg height="32" role="img" width="32" viewBox="0 0 24 24"
+                                                    class="UIBT7E6ZYMcSDl1KL62g">
                                                     <rect x="5" y="3" width="4" height="18" fill="currentColor"></rect>
                                                     <rect x="15" y="3" width="4" height="18" fill="currentColor"></rect>
                                                 </svg>

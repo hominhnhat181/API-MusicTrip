@@ -440,3 +440,92 @@ h2 {
     transform: translate(-50%,-50%);
 }
 
+
+.playlist-table{
+    color: white;
+    margin-top: 30px;
+}
+
+.playlist-table .table-header{
+    display: flex;
+    width: 100%;
+    padding: 0 22px;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding-bottom: 10px ;
+}
+
+.playlist-table .table-body{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table-body-content{
+    display: flex;
+    padding: 3px 22px 1px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.table-body-content:hover{
+    background-color: rgba(255,255,255,.1);
+}
+
+
+.table-header .list-id{
+    display: flex;
+}
+
+.table-header .list-id h5{
+    color: #b3b3b3;
+}
+
+.table-header .list-id #id{
+    margin-right: 25px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.list-status h5{
+    margin-bottom: 0;
+}
+
+.table-body .table-body-content .list-id{
+    margin-right: 25px;
+}
+
+.table-body .table-body-content .list-name {
+    width: 100%;
+}
+
+.table-body-content .list-id h5{
+    margin-top: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #b3b3b3;
+}
+
+.table-body .list-name-song .trackSong{
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.table-body .list-name-artist .trackArtist{
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
+
+.table-body-content:hover > .trackArtist{
+    color: white !important;
+}
+
+.list-time{
+    color: #b3b3b3;
+    font-size: 16px;
+}
+
+.list-time .las{
+    font-size: 22px;
+}
+
